@@ -1,0 +1,24 @@
+.nav-main {
+  margin-left: 150px;
+  margin-top: 40px;
+  font-family: "Open Sans";
+  line-height: 1.22;
+  letter-spacing: 1.35px;
+  font-size: 22px;
+
+  a {
+    color: white;
+    text-decoration: none;
+    margin-right: 40px;
+    transition: all 0.3s ease 0s;
+  }
+
+  a:hover {
+    border-bottom: solid white 2px;
+    transition: all 0.3s ease 0s;
+  }
+
+  .clicked {
+    border-bottom: solid white 2px;
+  }
+}
