@@ -40,6 +40,7 @@
     font-weight: bold;
     transition: all 0.3s ease 0s;
     cursor: pointer;
+    margin: 0 10px;
 
     width: 200px;
     height: 60px;
@@ -51,5 +52,17 @@
     color: white;
     background: #8f7d4a;
     transition: all 0.3s ease 0s;
+  }
+
+  .arrow-container {
+    display: flex;
+
+    img {
+      width: 100px;
+    }
+
+    .left-arrow {
+      transform: rotate(80deg);
+    }
   }
 }
