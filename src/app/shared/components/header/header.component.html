@@ -1,5 +1,5 @@
 <nav class="nav-main">
-  <a href="">ZASADY</a>
-  <a class="clicked" href="">REZERWACJA</a>
-  <a href="">KONTAKT</a>
+  <a href="" [class.clicked]="selectedStep === 0">ZASADY</a>
+  <a [class.clicked]="selectedStep === 1" href="">REZERWACJA</a>
+  <a [class.clicked]="selectedStep === 2" href="">KONTAKT</a>
 </nav>

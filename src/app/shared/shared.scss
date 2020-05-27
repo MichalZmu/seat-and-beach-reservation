@@ -1,0 +1,25 @@
+.standard-button {
+  font-family: "Open Sans";
+  font-size: 20px;
+  color: #8f7d4a;
+  border-radius: 15px 15px 15px 15px;
+  -moz-border-radius: 15px 15px 15px 15px;
+  -webkit-border-radius: 15px 15px 15px 15px;
+  border: 4px solid #8f7d4a;
+  background: transparent;
+  font-weight: bold;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  margin: 40px 10px 0 10px;
+
+  width: 200px;
+  height: 60px;
+  margin-top: 40px;
+
+}
+
+.standard-button:hover {
+  color: white;
+  background: #8f7d4a;
+  transition: all 0.3s ease 0s;
+}
