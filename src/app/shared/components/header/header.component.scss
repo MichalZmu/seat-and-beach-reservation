@@ -1,10 +1,22 @@
+.nav-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .nav-main {
-  margin-left: 150px;
-  margin-top: 40px;
   font-family: "Open Sans";
-  line-height: 1.22;
-  letter-spacing: 1.35px;
-  font-size: 22px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .nav-links {
+    line-height: 1.22;
+    letter-spacing: 1.35px;
+    font-size: 22px;
+  }
 
   a {
     color: white;
@@ -17,8 +29,22 @@
     border-bottom: solid white 2px;
     transition: all 0.3s ease 0s;
   }
+
+  .login-button {
+    text-align: right;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+
+    img {
+      width: 20px;
+      margin: 0 10px;
+    }
+  }
+
 }
 
 .clicked {
   border-bottom: solid white 2px;
 }
+

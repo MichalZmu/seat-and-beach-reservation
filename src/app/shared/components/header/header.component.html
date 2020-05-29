@@ -1,5 +1,12 @@
 <nav class="nav-main">
-  <a href="" [class.clicked]="selectedStep === 0">ZASADY</a>
-  <a [class.clicked]="selectedStep === 1" href="">REZERWACJA</a>
-  <a [class.clicked]="selectedStep === 2" href="">KONTAKT</a>
+  <div class="nav-links">
+    <a href="" [class.clicked]="selectedStep === 0">ZASADY</a>
+    <a [class.clicked]="selectedStep === 1" href="">REZERWACJA</a>
+    <a [class.clicked]="selectedStep === 2" href="">KONTAKT</a>
+  </div>
+  <div class="login-button" (click)="goToLogin()">
+    <img src="../../../../assets/icons/user.svg" alt="user_icon">
+    <span>zaloguj się</span>
+  </div>
 </nav>
+

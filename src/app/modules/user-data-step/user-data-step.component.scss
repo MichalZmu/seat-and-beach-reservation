@@ -21,6 +21,7 @@
   flex-direction: column;
   align-items: center;
 
+
   .red-title {
     color: #ff675a;
     font-family: "Open Sans";
@@ -36,4 +37,37 @@
       color: #8f7d4a;
     }
   }
+
+  .single-section {
+    display: flex;
+
+    .form-group {
+      padding: 0 20px;
+    }
+  }
+
+  .data-section{
+    display: flex;
+    flex-direction: column;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+.ng-valid[required], .ng-valid.required {
+  border-left: 5px solid green;
+}
+
+.not-valid {
+  border-left: 5px solid red;
+  background:  #ffb3b3;
+}
+
+.not-valid-text {
+  color: red;
 }
