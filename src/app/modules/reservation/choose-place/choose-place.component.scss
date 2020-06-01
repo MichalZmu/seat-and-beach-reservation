@@ -5,7 +5,7 @@
     align-items: center;
     font-size: 105px;
     font-family: "Ink Free";
-    margin-top: 340px;
+    margin-top: 300px;
     color: #8f7d4a;
     display: flex;
     justify-content: center;
@@ -49,4 +49,15 @@
     border: dashed black 1px;
     border-radius: 5px;
     flex-wrap: wrap;
+  }
+
+  .place:hover {
+    background: rgba(250, 250, 250, 0.3) 
+  }
+  .material-icons {
+    margin: 0 18px 0 18px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
   }
