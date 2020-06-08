@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HeaderService} from '../../shared/components/header/header.service';
+import {HeaderService} from '../../services/header.service';
 
 @Component({
   selector: 'app-page-not-found',

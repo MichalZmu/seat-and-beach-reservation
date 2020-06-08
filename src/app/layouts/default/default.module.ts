@@ -6,8 +6,8 @@ import {RouterModule} from '@angular/router';
 import {HomeComponent} from '../../modules/home/home.component';
 import {UserDataStepComponent} from '../../modules/user-data-step/user-data-step.component';
 import {PageNotFoundComponent} from '../../modules/page-not-found/page-not-found.component';
-import {LoginOrReqistrationComponent} from '../../modules/login-or-reqistration/login-or-reqistration.component';
-import {FormsModule} from '@angular/forms';
+import {LoginOrRegistrationComponent} from '../../modules/login-or-reqistration/login-or-registration.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MustMatchDirective} from '../../modules/user-data-step/must-match.directive';
 
 @NgModule({
@@ -15,13 +15,14 @@ import {MustMatchDirective} from '../../modules/user-data-step/must-match.direct
     HomeComponent,
     UserDataStepComponent,
     PageNotFoundComponent,
-    LoginOrReqistrationComponent,
+    LoginOrRegistrationComponent,
     MustMatchDirective],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DefaultModule { }

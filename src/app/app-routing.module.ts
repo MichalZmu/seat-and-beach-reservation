@@ -4,7 +4,7 @@ import {HomeComponent} from './modules/home/home.component';
 import {DefaultComponent} from './layouts/default/default.component';
 import {UserDataStepComponent} from './modules/user-data-step/user-data-step.component';
 import {PageNotFoundComponent} from './modules/page-not-found/page-not-found.component';
-import {LoginOrReqistrationComponent} from './modules/login-or-reqistration/login-or-reqistration.component';
+import {LoginOrRegistrationComponent} from './modules/login-or-reqistration/login-or-registration.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
       },
       {
         path: 'login-form',
-        component: LoginOrReqistrationComponent
+        component: LoginOrRegistrationComponent
       },
       {
         path: '**',
