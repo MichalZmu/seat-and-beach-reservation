@@ -1,0 +1,52 @@
+  .choose-place-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 105px;
+    font-family: "Ink Free";
+    margin-top: 340px;
+    color: #8f7d4a;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  
+	  z-index: 2;
+	  -webkit-transition: all .8s ease-in-out;
+	  -moz-transition: all .8s ease-in-out;
+  	-o-transition: all .8s ease-in-out;
+	  transition: all .8s ease-in-out;
+
+    .datepicker {
+      font-size: 18px;
+      color:black;
+
+      .timeInput {
+        margin: 5px;
+        width: 55%;
+      }
+    }
+   
+  }
+  .choose-place-container:target{
+    margin-top: 0%;
+  }
+  .grid {
+    width: 500px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .place {
+    margin: 5px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    border: dashed black 1px;
+    border-radius: 5px;
+    flex-wrap: wrap;
+  }

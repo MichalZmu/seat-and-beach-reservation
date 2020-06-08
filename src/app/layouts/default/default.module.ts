@@ -9,6 +9,7 @@ import {PageNotFoundComponent} from '../../modules/page-not-found/page-not-found
 import {LoginOrRegistrationComponent} from '../../modules/login-or-reqistration/login-or-registration.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MustMatchDirective} from '../../modules/user-data-step/must-match.directive';
+import { ReservationModule } from 'src/app/modules/reservation/reservation.module';
 
 @NgModule({
   declarations: [DefaultComponent,
@@ -20,6 +21,8 @@ import {MustMatchDirective} from '../../modules/user-data-step/must-match.direct
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
+    ReservationModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule

@@ -1,0 +1,28 @@
+<div class ="choose-place-container" *ngIf="!dataChoosed">
+    Wybierz tremin 
+    <div class="datepicker">
+        <mat-form-field>
+            <input  [(ngModel)]="reservationDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+        </mat-form-field>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+    <div class="datepicker">
+        <mat-form-field class="timeInput">
+        <mat-label>Od Godziny</mat-label>
+            <input [(ngModel)]="hourFrom" matInput placeholder="8" type="time">
+        </mat-form-field>
+        <mat-form-field class="timeInput">
+            <mat-label>Do Godziny</mat-label>
+        <input  [(ngModel)]="hourTo" matInput placeholder="18" type="time">
+    </mat-form-field>
+    </div>
+<button mat-raised-button (click)="isDataChoosed()" >Dalej</button>
+</div>
+<div class ="choose-place-container">
+    Wybierz miejsce
+    <div class="grid">
+        <div class="place" *ngFor="let place of places">
+        </div>
+        </div>
+</div>
