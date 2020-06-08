@@ -5,6 +5,7 @@ import {DefaultComponent} from './layouts/default/default.component';
 import {UserDataStepComponent} from './modules/user-data-step/user-data-step.component';
 import {PageNotFoundComponent} from './modules/page-not-found/page-not-found.component';
 import {LoginOrRegistrationComponent} from './modules/login-or-reqistration/login-or-registration.component';
+import {ChoosePlaceComponent} from './modules/reservation/choose-place/choose-place.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'login-form',
         component: LoginOrRegistrationComponent
+      },
+      {
+        path: 'reservation',
+        component: ChoosePlaceComponent
       },
       {
         path: '**',

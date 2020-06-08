@@ -14,7 +14,7 @@ import {DefaultModule} from './layouts/default/default.module';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    DefaultModule,
+    DefaultModule
   ],
   providers: [],
   exports: [],
