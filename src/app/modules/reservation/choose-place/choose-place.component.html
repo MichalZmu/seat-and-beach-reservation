@@ -1,5 +1,5 @@
 <div class ="choose-place-container" *ngIf="!dataChoosed">
-    Wybierz tremin 
+    Wybierz tremin
     <div class="datepicker">
         <mat-form-field>
             <input  [(ngModel)]="reservationDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
@@ -28,4 +28,5 @@
             </span>
         </div>
     </div>
+  <button mat-raised-button (click)="nextStep()" >Dalej</button>
 </div>

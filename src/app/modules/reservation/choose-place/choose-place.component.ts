@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { element } from 'protractor';
+import {ReservationService} from '../../../services/reservation.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-choose-place',
@@ -12,6 +14,7 @@ export class ChoosePlaceComponent implements OnInit {
   reservationDate;
   hourFrom;
   hourTo;
+  selectedSeat;
 
   user: {
     id: string,
@@ -245,7 +248,8 @@ export class ChoosePlaceComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private reservationService: ReservationService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -254,6 +258,7 @@ export class ChoosePlaceComponent implements OnInit {
    if (this.hourTo && this.hourFrom && this.reservationDate) {
      this.dataChoosed = true;
    }
+
    console.log(this.places);
   }
 
@@ -267,16 +272,26 @@ export class ChoosePlaceComponent implements OnInit {
     console.log(this.places);
     console.log(this.reservationDate, this.hourFrom, this.hourTo);
     this.places.push(this.reservationDate, this.hourFrom, this.hourTo, placeId);
+    this.selectedSeat = placeId;
     console.log(this.places);
   }
 
   isPlaceAvaiable(id): boolean {
-    const place = this.places.find(el => el.id === id);
-    place.reservation.forEach(date => {
-      if (this.reservationDate === date.date) {
-        return false;
-      }
-    });
+    // const place = this.places.find(el => el.id === id);
+    // place.reservation.forEach(date => {
+    //   if (this.reservationDate === date.date) {
+    //     return false;
+    //   }
+    // });
     return true;
+  }
+
+  nextStep(): void {
+    console.log(this.hourFrom);
+    console.log(this.hourTo);
+    console.log(this.reservationDate);
+    this.selectedSeat = '2a';
+    this.reservationService.setReservationDetails(this.hourFrom, this.hourTo, this.reservationDate, this.selectedSeat);
+    this.router.navigateByUrl('/user-data');
   }
 }
