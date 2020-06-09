@@ -23,10 +23,10 @@
         <div class="form-group">
           <label for="email">Adres email:</label>
           <input type="email" class="form-control" id="email" placeholder="name@example.com" [(ngModel)]="user.email"
-                 name="email" required>
+                 name="email" #email="ngModel" [class.not-valid]="submitted && email.invalid" required>
         </div>
       </div>
-      <div class="single-section">
+      <div class="single-section" *ngIf="passwordNeeded">
         <div class="form-group">
           <label for="password">Hasło:</label>
           <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password"
@@ -45,6 +45,6 @@
         </div>
       </div>
     </div>
-    <button type="submit" (click)="newUser(userForm);" class="standard-button">DALEJ</button>
+    <button type="submit" (click)="nextStep(userForm);" class="standard-button">DALEJ</button>
   </form>
 </div>

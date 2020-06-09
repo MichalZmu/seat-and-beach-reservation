@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 
@@ -13,29 +13,61 @@ export class ReservationService {
     timeTo: '',
     date: '',
     seatNumber: '',
-    userId: ''
+    userId: '',
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    email: ''
   };
   reservations: Reservation[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  addReservation(reservation: Reservation) {
-    this.http.post<{ message: string, reservationId: string }>('http://localhost:3000/api/reservations', reservation).subscribe(responseData => {
+  addReservation() {
+    this.http.post<{ message: string, reservationId: string }>('https://seat-and-beach.herokuapp.com/api/reservations', this.reservation).subscribe(responseData => {
       console.log(responseData.message);
-      reservation.id = responseData.reservationId;
-      this.reservations.push(reservation);
+      this.reservation.id = responseData.reservationId;
+      this.reservations.push(this.reservation);
       this.reservationUpdated.next(this.reservations);
+      this.reservation = null;
     });
   }
 
-  setReservationDetails(timeFrom: any, timeTo: string, date: string, seatNumber: string) {
-    this.reservation.timeFrom = timeFrom;
-    this.reservation.timeTo = timeTo;
-    this.reservation.date = date;
-    this.reservation.seatNumber = seatNumber;
-    this.reservation.userId = '2123sas';
-    this.addReservation(this.reservation);
-    console.log(this.reservation);
+  set timeFrom(value: string) {
+    this.reservation.timeFrom = value;
+  }
+
+  set timeTo(value: string) {
+    this.reservation.timeTo = value;
+  }
+
+  set date(value: string) {
+    this.reservation.date = value;
+  }
+
+  set seatNumber(value: string) {
+    this.reservation.seatNumber = value;
+  }
+
+  set userId(value: string) {
+    this.reservation.userId = value;
+  }
+
+  set firstName(value: string) {
+    this.reservation.firstName = value;
+  }
+
+  set lastName(value: string) {
+    this.reservation.lastName = value;
+  }
+
+  set email(value: string) {
+    this.reservation.email = value;
+  }
+
+  set phoneNumber(value: string) {
+    this.reservation.phoneNumber = value;
   }
 }
 
@@ -45,6 +77,9 @@ export interface Reservation {
   timeTo: string;
   date: string;
   seatNumber: string;
-  userId;
-
+  userId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
 }

@@ -291,7 +291,10 @@ export class ChoosePlaceComponent implements OnInit {
     console.log(this.hourTo);
     console.log(this.reservationDate);
     this.selectedSeat = '2a';
-    this.reservationService.setReservationDetails(this.hourFrom, this.hourTo, this.reservationDate, this.selectedSeat);
+    this.reservationService.timeFrom = this.hourFrom;
+    this.reservationService.timeTo = this.hourTo;
+    this.reservationService.date = this.reservationDate;
+    this.reservationService.seatNumber = this.selectedSeat;
     this.router.navigateByUrl('/user-data');
   }
 }
