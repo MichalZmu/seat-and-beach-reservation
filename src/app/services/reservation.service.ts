@@ -1,11 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
+import {HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ReservationService {
+
+  places = ['1a', '2a', '3a', '4a', '5a', '6a', '7a',
+  '1b', '2b', '3b', '4b', '5b', '6b', '7b',
+  '1c', '2c', '3c', '4c', '5c', '6c', '7c',
+  '1d', '2d', '3d', '4d', '5d', '6d', '7d'];
+
   reservationUpdated = new Subject<Reservation[]>();
   reservation: Reservation = {
     id: null,
@@ -32,6 +41,11 @@ export class ReservationService {
       this.reservationUpdated.next(this.reservations);
       this.reservation = null;
     });
+  }
+
+  getReservations(dateFrom, dateTo): Observable<Reservation[]> {
+    const params = new HttpParams().set('DateFrom', dateFrom.toISOString()).set('HourFrom', dateTo.toISOString());
+    return this.http.get<Reservation[]>('https://seat-and-beach.herokuapp.com/api/reservations', { params });
   }
 
   set timeFrom(value: string) {
