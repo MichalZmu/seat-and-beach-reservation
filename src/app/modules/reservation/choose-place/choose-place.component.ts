@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { ReservationService, Reservation } from '../../../services/reservation.service';
 import { Router } from '@angular/router';
 
@@ -15,10 +15,10 @@ export class ChoosePlaceComponent implements OnInit {
   selectedSeat: string;
   places = [];
   reservations: Reservation[];
+  @Output() currentStepChange = new EventEmitter<number>();
 
   constructor(
-    private reservationService: ReservationService,
-    private router: Router) { }
+    private reservationService: ReservationService) { }
 
   ngOnInit(): void {
     this.places = this.reservationService.places;
@@ -53,6 +53,6 @@ export class ChoosePlaceComponent implements OnInit {
 
   nextStep(): void {
     this.reservationService.seatNumber = this.selectedSeat;
-    this.router.navigateByUrl('/user-data');
+    this.currentStepChange.emit(2);
   }
 }

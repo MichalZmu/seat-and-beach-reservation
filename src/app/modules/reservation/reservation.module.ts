@@ -8,9 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import {UserDataStepComponent} from './user-data-step/user-data-step.component';
+import {MustMatchDirective} from '../../directives/must-match.directive';
+import { ReservationComponent } from './reservation.component';
 
 @NgModule({
-  declarations: [ChoosePlaceComponent],
+  declarations: [ChoosePlaceComponent,
+  UserDataStepComponent,
+  MustMatchDirective,
+  ReservationComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -19,8 +25,9 @@ import { FormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatFormFieldModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
   ],
-  exports: [ChoosePlaceComponent]
+  exports: [ChoosePlaceComponent,
+  MustMatchDirective]
 })
 export class ReservationModule { }

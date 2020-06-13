@@ -1,19 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 import {ReservationService} from '../../services/reservation.service';
 
 @Component({
-  selector: 'app-user-data-step',
-  templateUrl: './user-data-step.component.html',
-  styleUrls: ['./user-data-step.component.scss']
+  selector: 'app-create-new-user',
+  templateUrl: './create-new-user.component.html',
+  styleUrls: ['./create-new-user.component.scss']
 })
-export class UserDataStepComponent implements OnInit {
-  user = new User();
+export class CreateNewUserComponent implements OnInit {
+
+  user: User = {email: '', firstName: '', id: null, lastName: '', password: '', phoneNumber: ''};
   submitted = false;
   passwordConfirmation: string;
-  passwordNeeded = false;
 
   constructor(private router: Router,
               private reservationService: ReservationService) {
@@ -42,27 +41,4 @@ export class UserDataStepComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
-}
-
-export function mustMatch(controlName: string, matchingControlName: string) {
-  return (formGroup: FormGroup) => {
-    const control = formGroup.controls[controlName];
-    const matchingControl = formGroup.controls[matchingControlName];
-
-    if (!control || !matchingControl) {
-      return null;
-    }
-
-    if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-      return null;
-    }
-
-    if (control.value !== matchingControl.value) {
-      matchingControl.setErrors({mustMatch: true});
-    } else {
-      matchingControl.setErrors(null);
-    }
-  };
-
-
 }

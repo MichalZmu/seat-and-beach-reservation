@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
       this.router.navigateByUrl('/reservation');
     }
     else {
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('/login-form');
     }
   }
 

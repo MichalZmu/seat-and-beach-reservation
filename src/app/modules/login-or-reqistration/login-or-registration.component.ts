@@ -27,12 +27,14 @@ export class LoginOrRegistrationComponent implements OnInit {
   }
 
   goToRegistrationForm(): void {
-    this.router.navigateByUrl('/user-data');
+    this.router.navigateByUrl('/create-new-user');
   }
 
   onSubmit(): void {
     this.submitted = true;
     this.formVal = this.loginForm.value;
   }
+
+
 
 }

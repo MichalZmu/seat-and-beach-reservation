@@ -1,13 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Subject} from 'rxjs';
-import {HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class ReservationService {
 
   places = ['1a', '2a', '3a', '4a', '5a', '6a', '7a',
@@ -17,10 +14,9 @@ export class ReservationService {
 
   reservationUpdated = new Subject<Reservation[]>();
   reservation: Reservation = {
-    id: null,
-    timeFrom: '',
-    timeTo: '',
-    date: '',
+    _id: null,
+    dateFrom: null,
+    dateTo: null,
     seatNumber: '',
     userId: '',
     firstName: '',
@@ -36,7 +32,7 @@ export class ReservationService {
   addReservation() {
     this.http.post<{ message: string, reservationId: string }>('https://seat-and-beach.herokuapp.com/api/reservations', this.reservation).subscribe(responseData => {
       console.log(responseData.message);
-      this.reservation.id = responseData.reservationId;
+      this.reservation._id = responseData.reservationId;
       this.reservations.push(this.reservation);
       this.reservationUpdated.next(this.reservations);
       this.reservation = null;
@@ -48,17 +44,14 @@ export class ReservationService {
     return this.http.get<Reservation[]>('https://seat-and-beach.herokuapp.com/api/reservations', { params });
   }
 
-  set timeFrom(value: string) {
-    this.reservation.timeFrom = value;
+  set dateTo(value: string) {
+    this.reservation.dateFrom = value;
   }
 
-  set timeTo(value: string) {
-    this.reservation.timeTo = value;
+  set dateFrom(value: string) {
+    this.reservation.dateFrom = value;
   }
 
-  set date(value: string) {
-    this.reservation.date = value;
-  }
 
   set seatNumber(value: string) {
     this.reservation.seatNumber = value;
@@ -86,10 +79,9 @@ export class ReservationService {
 }
 
 export interface Reservation {
-  id: string;
-  timeFrom: string;
-  timeTo: string;
-  date: string;
+  _id: string;
+  dateFrom: string;
+  dateTo: string;
   seatNumber: string;
   userId: string;
   firstName: string;
