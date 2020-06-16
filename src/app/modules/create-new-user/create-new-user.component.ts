@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
 import {Router} from '@angular/router';
 import {ReservationService} from '../../services/reservation.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-create-new-user',
@@ -15,7 +16,7 @@ export class CreateNewUserComponent implements OnInit {
   passwordConfirmation: string;
 
   constructor(private router: Router,
-              private reservationService: ReservationService) {
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -29,15 +30,9 @@ export class CreateNewUserComponent implements OnInit {
     return JSON.stringify(this.user);
   }
 
-  nextStep(userForm) {
-    console.log(userForm);
+  createUser(userForm) {
     if (userForm.form.status !== 'INVALID') {
-      this.reservationService.userId = '123123';
-      this.reservationService.firstName = this.user.firstName;
-      this.reservationService.lastName = this.user.lastName;
-      this.reservationService.email = this.user.email;
-      this.user.phoneNumber ? this.reservationService.phoneNumber = this.user.phoneNumber : this.reservationService.phoneNumber = '';
-      this.reservationService.addReservation();
+      this.authService.createUser(this.user);
       this.router.navigate(['/']);
     }
   }

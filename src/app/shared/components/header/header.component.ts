@@ -1,6 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HeaderService} from '../../../services/header.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../../../services/auth.service';
+import {Subscription} from 'rxjs';
+import {User} from '../../../models/user';
 
 @Component({
   selector: 'app-header',
@@ -8,21 +11,36 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   selectedStep = 1;
+  isAuthenticated = false;
+  currentUser: User;
 
   constructor(private headerService: HeaderService,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.isAuthenticated = this.authService.isAuth;
     this.headerService.getStep().subscribe(data => {
       this.selectedStep = data;
     });
+    this.authService.getAuthStatusListener().subscribe( data => {
+      this.isAuthenticated = data;
+    });
+  }
+
+  ngOnDestroy() {
+    this.authService.getAuthStatusListener().unsubscribe();
   }
 
   goToLogin(): void {
     this.router.navigate(['/login-form']);
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 
 }

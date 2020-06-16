@@ -10,7 +10,7 @@
         <label for="password">Hasło:</label>
         <input type="password" class="form-control" id="password" name="password" formControlName="password" [class.not-valid]="submitted && loginForm.controls.password.status === 'INVALID'" required>
       </div>
-      <button type="submit" class="standard-button-small">Zaloguj się</button>
+      <button type="submit" (click)="login()" class="standard-button-small">Zaloguj się</button>
     </form>
   </div>
   <div class="registration-container">

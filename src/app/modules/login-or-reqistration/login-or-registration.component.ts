@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-or-registration',
@@ -16,7 +17,8 @@ export class LoginOrRegistrationComponent implements OnInit {
   formVal: any;
 
   constructor(private router: Router,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private authService: AuthService) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -35,6 +37,11 @@ export class LoginOrRegistrationComponent implements OnInit {
     this.formVal = this.loginForm.value;
   }
 
+  login(): void {
+    if (this.loginForm.status !== 'INVALID') {
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
+    }
 
+  }
 
 }

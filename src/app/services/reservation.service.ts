@@ -44,6 +44,11 @@ export class ReservationService {
     return this.http.get<Reservation[]>('https://seat-and-beach.herokuapp.com/api/reservations', { params });
   }
 
+  getAllReservationsByUserId(userId): Observable<Reservation[]> {
+    const params = new HttpParams().set('userId', userId);
+    return this.http.get<Reservation[]>('https://seat-and-beach.herokuapp.com/api/reservations/user', { params});
+  }
+
   set dateTo(value: string) {
     this.reservation.dateFrom = value;
   }

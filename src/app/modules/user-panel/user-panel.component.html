@@ -1,0 +1,10 @@
+<div class="main-container">
+  <h3 class="red-title">Moje rezerwacje:</h3>
+  <div *ngFor="let reservation of reservations">
+    <div></div>
+    <p>ID: {{reservation._id}}</p>
+    <p>Od: {{reservation.dateFrom}}</p>
+    <p>Do: {{reservation.dateTo}}</p>
+    <p>Numer miejsca: {{reservation.seatNumber}}</p>
+  </div>
+</div>

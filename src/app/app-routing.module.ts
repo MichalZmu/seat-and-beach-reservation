@@ -4,9 +4,10 @@ import {HomeComponent} from './modules/home/home.component';
 import {DefaultComponent} from './layouts/default/default.component';
 import {PageNotFoundComponent} from './modules/page-not-found/page-not-found.component';
 import {LoginOrRegistrationComponent} from './modules/login-or-reqistration/login-or-registration.component';
-import {SummaryStepComponent} from './modules/summary-step/summary-step.component';
 import {CreateNewUserComponent} from './modules/create-new-user/create-new-user.component';
 import {ReservationComponent} from './modules/reservation/reservation.component';
+import {UserPanelComponent} from './modules/user-panel/user-panel.component';
+import {AuthGuard} from './shared/components/auth.guard';
 
 const routes: Routes = [
   {
@@ -25,12 +26,13 @@ const routes: Routes = [
         component: ReservationComponent
       },
       {
-        path: 'summary',
-        component: SummaryStepComponent
-      },
-      {
         path: 'create-new-user',
         component: CreateNewUserComponent
+      },
+      {
+        path: 'user-panel',
+        component: UserPanelComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: '**',
@@ -40,7 +42,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule {
 }
