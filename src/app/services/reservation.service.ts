@@ -50,7 +50,7 @@ export class ReservationService {
   }
 
   set dateTo(value: string) {
-    this.reservation.dateFrom = value;
+    this.reservation.dateTo = value;
   }
 
   set dateFrom(value: string) {

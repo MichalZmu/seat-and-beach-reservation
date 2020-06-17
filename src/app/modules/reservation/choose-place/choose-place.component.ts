@@ -26,6 +26,7 @@ export class ChoosePlaceComponent implements OnInit {
 
   isDataChoosed(): void {
     if (this.reservationDateFrom && this.reservationDateTo) {
+      console.log(this.reservationDateTo, this.reservationDateFrom);
       this.dataChoosed = true;
       this.reservationService.getReservations(this.reservationDateFrom, this.reservationDateTo).subscribe(data => {
         this.reservations = data;
@@ -53,6 +54,8 @@ export class ChoosePlaceComponent implements OnInit {
 
   nextStep(): void {
     this.reservationService.seatNumber = this.selectedSeat;
+    this.reservationService.dateFrom = this.reservationDateFrom.toISOString();
+    this.reservationService.dateTo = this.reservationDateTo.toISOString();
     this.currentStepChange.emit(2);
   }
 }
