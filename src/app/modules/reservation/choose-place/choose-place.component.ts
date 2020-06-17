@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class ChoosePlaceComponent implements OnInit {
 
+  beachWidth: string;
   dataChoosed: boolean;
   reservationDateFrom: Date;
   reservationDateTo: Date;
   selectedSeat: string;
   places = [];
+  numberOfColumns: number;
+  numberOfRows: number;
   reservations: Reservation[];
   @Output() currentStepChange = new EventEmitter<number>();
 
@@ -21,7 +24,22 @@ export class ChoosePlaceComponent implements OnInit {
     private reservationService: ReservationService) { }
 
   ngOnInit(): void {
-    this.places = this.reservationService.places;
+    this.numberOfColumns = this.reservationService.numberOfColumns;
+    this.numberOfRows = this.reservationService.numberOfRows;
+    this.beachWidth = this.numberOfColumns * 60 + this.numberOfColumns * 10 + 'px';
+    for ( let i = 0; i < this.numberOfColumns; i++) {
+      for (let j = 1; j <= this.numberOfRows; j++) {
+        this.places.push(j + this.returnColumn(i));
+      }
+    }
+  }
+
+  returnColumn(column): string {
+    if (column >= 26) {
+      column = column % 26;
+    }
+    const chr = String.fromCharCode(97 + column);
+    return chr;
   }
 
   isDataChoosed(): void {
