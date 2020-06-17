@@ -16,12 +16,28 @@
 }
 
 .single-reservation {
-  display: flex;
-  flex-direction: column;
+  color: #8f7d4a;
 }
 
 .main-container {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.table-header {
+  color: #8f7d4a;
+}
+
+table {
+  font-family: "Open Sans";
+  margin: 20px 0;
+}
+
+th {
+  width: 150px;
+}
+
+th, td {
+  border-bottom: 1px white solid;
 }

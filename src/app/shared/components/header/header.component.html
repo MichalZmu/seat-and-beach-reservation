@@ -5,12 +5,11 @@
     <a [class.clicked]="selectedStep === 2" href="">KONTAKT</a>
   </div>
   <div *ngIf="!isAuthenticated" class="login-button" (click)="goToLogin()">
-    <img src="../../../../assets/icons/user.svg" alt="user_icon">
-    <span>zaloguj się</span>
+    <span>ZALOGUJ SIĘ</span>
   </div>
-  <div *ngIf="isAuthenticated" class="login-button" (click)="logout()">
+  <div *ngIf="isAuthenticated && this.currentUser" class="login-button" (click)="logout()">
     <img src="../../../../assets/icons/user.svg" alt="user_icon">
-    <span>wyloguj się</span>
+    <span>{{this.currentUser.email}}</span>
   </div>
 </nav>
 
