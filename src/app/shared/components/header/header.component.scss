@@ -36,6 +36,16 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     font-size: 20px;
     color: white;
     cursor: pointer;
+    display: flex;
+
+    .email-span {
+      padding-right: 10px;
+      border-right: 2px solid white;
+    }
+
+    .logout-span {
+      padding-left: 10px;
+    }
 
     img {
       width: 20px;
