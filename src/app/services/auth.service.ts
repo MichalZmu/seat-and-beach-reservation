@@ -3,7 +3,6 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {User} from '../models/user';
 import {Observable, Subject} from 'rxjs';
 import {Router} from '@angular/router';
-import set = Reflect.set;
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +32,7 @@ export class AuthService {
   login(email: string, password: string) {
     this.authData.email = email;
     this.authData.password = password;
-    this.http.post<{ token: string, userId: string, expiresIn: any}>('http://localhost:3000/api/user/login', this.authData).subscribe(response => {
+    this.http.post<{ token: string, userId: string, expiresIn: any}>('https://seat-and-beach.herokuapp.com/api/user/login', this.authData).subscribe(response => {
       this._userId = response.userId;
       this._token = response.token;
       if (this._token) {
@@ -51,7 +50,7 @@ export class AuthService {
 
   getCurrentUser(userId: string): Observable<any> {
     const httpParams = new HttpParams().set('userId', userId);
-    return this.http.get('http://localhost:3000/api/user/current-user', {params: httpParams});
+    return this.http.get('https://seat-and-beach.herokuapp.com/api/user/current-user', {params: httpParams});
   }
 
   get token(): string {
