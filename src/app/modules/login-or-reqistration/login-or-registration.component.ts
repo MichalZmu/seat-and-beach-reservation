@@ -41,7 +41,6 @@ export class LoginOrRegistrationComponent implements OnInit {
     if (this.loginForm.status !== 'INVALID') {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
     }
-
   }
 
 }

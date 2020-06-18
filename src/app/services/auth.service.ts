@@ -23,11 +23,10 @@ export class AuthService {
               private router: Router) {
   }
 
-  createUser(user: User): void {
-    this.http.post('https://seat-and-beach.herokuapp.com/api/user/sign-up', user).subscribe(result => {
-      console.log(result);
-    });
+  createUser(user: User): Observable<any> {
+    return this.http.post('https://seat-and-beach.herokuapp.com/api/user/sign-up', user);
   }
+
 
   login(email: string, password: string) {
     this.authData.email = email;
@@ -45,6 +44,8 @@ export class AuthService {
         this._saveAuthData(this._token, expirationDate, this._userId);
         this.router.navigate(['/user-panel']);
       }
+    }, error => {
+      this.router.navigate(['/login-form']);
     });
   }
 

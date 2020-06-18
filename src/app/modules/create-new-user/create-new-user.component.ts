@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
 import {Router} from '@angular/router';
-import {ReservationService} from '../../services/reservation.service';
 import {AuthService} from '../../services/auth.service';
 
 @Component({
@@ -32,8 +31,11 @@ export class CreateNewUserComponent implements OnInit {
 
   createUser(userForm) {
     if (userForm.form.status !== 'INVALID') {
-      this.authService.createUser(this.user);
-      this.router.navigate(['/']);
+      this.authService.createUser(this.user).subscribe(() => {
+        this.router.navigate(['/']);
+      }, error => {
+        userForm.reset();
+      });
     }
   }
 }

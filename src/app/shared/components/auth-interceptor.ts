@@ -1,5 +1,4 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 
@@ -18,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
       });
       return next.handle(authRequest);
     }
-    console.log(authToken);
     return next.handle(req);
   }
+
 }
