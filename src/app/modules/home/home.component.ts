@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {HeaderService} from '../../services/header.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,11 @@ export class HomeComponent implements OnInit {
   isAuthenticated = false;
 
   constructor(private router: Router,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private headerService: HeaderService) { }
 
   ngOnInit(): void {
+    this.headerService.updateStep(1);
     this.isAuthenticated = this.authService.isAuth;
     this.authService.getAuthStatusListener().subscribe(data => {
       this.isAuthenticated = data;
