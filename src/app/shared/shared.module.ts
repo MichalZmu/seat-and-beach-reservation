@@ -8,15 +8,17 @@ import {AuthService} from '../services/auth.service';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ErrorInterceptor} from './components/error-interceptor';
+import {RouterModule} from '@angular/router';
 
 
 
 @NgModule({
   declarations: [HeaderComponent, ErrorDialogComponent],
-    imports: [
-        CommonModule,
-        MatDialogModule
-    ],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    RouterModule
+  ],
   providers: [
     AuthGuard,
     AuthService,

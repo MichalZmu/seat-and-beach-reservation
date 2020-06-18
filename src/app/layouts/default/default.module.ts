@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReservationModule } from 'src/app/modules/reservation/reservation.module';
 import {CreateNewUserComponent} from '../../modules/create-new-user/create-new-user.component';
 import {UserPanelComponent} from '../../modules/user-panel/user-panel.component';
+import {RulesComponent} from '../../modules/rules/rules.component';
 
 @NgModule({
   declarations: [DefaultComponent,
@@ -17,7 +18,8 @@ import {UserPanelComponent} from '../../modules/user-panel/user-panel.component'
     PageNotFoundComponent,
     LoginOrRegistrationComponent,
     CreateNewUserComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    RulesComponent
     ],
   imports: [
     CommonModule,

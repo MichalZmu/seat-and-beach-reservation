@@ -8,6 +8,7 @@ import {CreateNewUserComponent} from './modules/create-new-user/create-new-user.
 import {ReservationComponent} from './modules/reservation/reservation.component';
 import {UserPanelComponent} from './modules/user-panel/user-panel.component';
 import {AuthGuard} from './shared/components/auth.guard';
+import {RulesComponent} from './modules/rules/rules.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
         path: 'user-panel',
         component: UserPanelComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'rules',
+        component: RulesComponent
       },
       {
         path: '**',

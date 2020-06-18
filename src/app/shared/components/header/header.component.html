@@ -1,8 +1,8 @@
 <nav class="nav-main">
   <div class="nav-links">
-    <a href="" [class.clicked]="selectedStep === 0">ZASADY</a>
-    <a [class.clicked]="selectedStep === 1" href="">REZERWACJA</a>
-    <a [class.clicked]="selectedStep === 2" href="">KONTAKT</a>
+    <a [routerLink]="['/rules']" (click)="selectedStep = 0" [class.clicked]="selectedStep === 0">ZASADY</a>
+    <a [routerLink]="['/']" [class.clicked]="selectedStep === 1">REZERWACJA</a>
+    <a [routerLink]="['/']" [class.clicked]="selectedStep === 2">KONTAKT</a>
   </div>
   <div *ngIf="!isAuthenticated" class="login-button" (click)="goToLogin()">
     <span>ZALOGUJ SIĘ</span>
