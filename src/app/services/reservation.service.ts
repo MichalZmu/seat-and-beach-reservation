@@ -7,10 +7,8 @@ import {Observable, Subject} from 'rxjs';
 })
 export class ReservationService {
 
-  places = ['1a', '2a', '3a', '4a', '5a', '6a', '7a',
-  '1b', '2b', '3b', '4b', '5b', '6b', '7b',
-  '1c', '2c', '3c', '4c', '5c', '6c', '7c',
-  '1d', '2d', '3d', '4d', '5d', '6d', '7d'];
+  numberOfColumns = 7;
+  numberOfRows = 4;
 
   reservationUpdated = new Subject<Reservation[]>();
   reservation: Reservation = {
@@ -24,17 +22,15 @@ export class ReservationService {
     phoneNumber: '',
     email: ''
   };
+
   reservations: Reservation[] = [];
 
   constructor(private http: HttpClient) {
   }
 
   addReservation() {
-    this.http.post<{ message: string, reservationId: string }>('https://seat-and-beach.herokuapp.com/api/reservations', this.reservation).subscribe(responseData => {
-      console.log(responseData.message);
-      this.reservation._id = responseData.reservationId;
-      this.reservations.push(this.reservation);
-      this.reservationUpdated.next(this.reservations);
+    this.http.post<{ message: string, reservationId: string }>('https://seat-and-beach.herokuapp.com/api/reservations', this.reservation)
+    .subscribe(responseData => {
       this.reservation = null;
     });
   }
@@ -50,7 +46,7 @@ export class ReservationService {
   }
 
   set dateTo(value: string) {
-    this.reservation.dateFrom = value;
+    this.reservation.dateTo = value;
   }
 
   set dateFrom(value: string) {
