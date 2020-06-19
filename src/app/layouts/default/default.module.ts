@@ -11,6 +11,7 @@ import { ReservationModule } from 'src/app/modules/reservation/reservation.modul
 import {CreateNewUserComponent} from '../../modules/create-new-user/create-new-user.component';
 import {UserPanelComponent} from '../../modules/user-panel/user-panel.component';
 import {RulesComponent} from '../../modules/rules/rules.component';
+import {ContactComponent} from '../../modules/contact/contact.component';
 
 @NgModule({
   declarations: [DefaultComponent,
@@ -19,7 +20,8 @@ import {RulesComponent} from '../../modules/rules/rules.component';
     LoginOrRegistrationComponent,
     CreateNewUserComponent,
     UserPanelComponent,
-    RulesComponent
+    RulesComponent,
+    ContactComponent
     ],
   imports: [
     CommonModule,

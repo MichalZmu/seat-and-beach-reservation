@@ -9,6 +9,7 @@ import {ReservationComponent} from './modules/reservation/reservation.component'
 import {UserPanelComponent} from './modules/user-panel/user-panel.component';
 import {AuthGuard} from './shared/components/auth.guard';
 import {RulesComponent} from './modules/rules/rules.component';
+import {ContactComponent} from './modules/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'rules',
         component: RulesComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
       },
       {
         path: '**',
