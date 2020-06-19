@@ -1,11 +1,30 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { ReservationService, Reservation } from '../../../services/reservation.service';
-import { Router } from '@angular/router';
+import * as moment from 'moment';
+import {MomentDateAdapter} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_NATIVE_DATE_FORMATS, MatDateFormats} from '@angular/material/core';
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'YYYY-MM-DD',
+    monthYearLabel: 'YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'YYYY',
+  },
+};
 
 @Component({
   selector: 'app-choose-place',
   templateUrl: './choose-place.component.html',
-  styleUrls: ['./choose-place.component.scss']
+  styleUrls: ['./choose-place.component.scss'],
+  providers: [
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ]
 })
 export class ChoosePlaceComponent implements OnInit {
 
@@ -72,8 +91,8 @@ export class ChoosePlaceComponent implements OnInit {
 
   nextStep(): void {
     this.reservationService.seatNumber = this.selectedSeat;
-    this.reservationService.dateFrom = this.reservationDateFrom.toISOString();
-    this.reservationService.dateTo = this.reservationDateTo.toISOString();
+    this.reservationService.dateFrom = moment(this.reservationDateFrom).startOf('day').toISOString();
+    this.reservationService.dateTo = moment(this.reservationDateTo).endOf('day').toISOString();
     this.currentStepChange.emit(2);
   }
 }

@@ -14,7 +14,7 @@
         <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
       <mat-datepicker #pickerTo></mat-datepicker>
     </div>
-<button mat-raised-button (click)="isDataChoosed()" >Dalej</button>
+<button class="standard-button-small" (click)="isDataChoosed()" >Dalej</button>
 </div>
 <div class="choose-place-container" *ngIf="dataChoosed">
     Wybierz miejsce
@@ -25,5 +25,5 @@
             </span>
         </div>
     </div>
-  <button mat-raised-button (click)="nextStep()" >Dalej</button>
+  <button class="standard-button-small" (click)="nextStep()" >Dalej</button>
 </div>
