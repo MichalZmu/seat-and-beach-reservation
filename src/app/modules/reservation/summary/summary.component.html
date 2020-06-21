@@ -1,0 +1,9 @@
+<div class="main-container">
+  <h3 class="ink-free-title">Podsumowanie</h3>
+  <div class="data-section">
+    <p>Numer rezerwacji: {{this.reservation._id}}</p>
+    <p>Rezerwacja od: {{this.reservation.dateFrom | date:'dd/LL/y'}}</p>
+    <p>Rezerwacja do: {{this.reservation.dateTo | date:'dd/LL/y'}}</p>
+    <p>Numer miejsca: {{this.reservation.seatNumber}}</p>
+  </div>
+</div>

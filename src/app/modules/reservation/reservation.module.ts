@@ -11,12 +11,14 @@ import { FormsModule } from '@angular/forms';
 import {UserDataStepComponent} from './user-data-step/user-data-step.component';
 import {MustMatchDirective} from '../../directives/must-match.directive';
 import { ReservationComponent } from './reservation.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [ChoosePlaceComponent,
   UserDataStepComponent,
   MustMatchDirective,
-  ReservationComponent],
+  ReservationComponent,
+  SummaryComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

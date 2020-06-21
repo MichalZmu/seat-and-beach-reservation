@@ -1,5 +1,6 @@
 import { Component, OnInit } from  '@angular/core';
 import {Observable} from 'rxjs';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-reservation',
@@ -8,10 +9,12 @@ import {Observable} from 'rxjs';
 })
 export class ReservationComponent implements OnInit {
   step = 1;
+  loggedUser = false;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.loggedUser = this.authService.isAuth;
   }
 
   stepChange(event) {

@@ -25,5 +25,6 @@
             </span>
         </div>
     </div>
-  <button class="standard-button-small" (click)="nextStep()" >Dalej</button>
+  <button *ngIf="!loggedUser" class="standard-button-small" (click)="nextStep()" >Dalej</button>
+  <button *ngIf="loggedUser" class="standard-button-small" (click)="makeReservation()" >Rezerwuj</button>
 </div>

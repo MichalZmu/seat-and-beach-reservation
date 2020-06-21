@@ -28,11 +28,8 @@ export class ReservationService {
   constructor(private http: HttpClient) {
   }
 
-  addReservation() {
-    this.http.post<{ message: string, reservationId: string }>('https://seat-and-beach.herokuapp.com/api/reservations', this.reservation)
-    .subscribe(responseData => {
-      this.reservation = null;
-    });
+  addReservation(): Observable<any> {
+    return this.http.post<{ message: string, reservationId: string }>('https://seat-and-beach.herokuapp.com/api/reservations', this.reservation);
   }
 
   getReservations(dateFrom, dateTo): Observable<Reservation[]> {
@@ -76,6 +73,10 @@ export class ReservationService {
 
   set phoneNumber(value: string) {
     this.reservation.phoneNumber = value;
+  }
+
+  set id(value: string) {
+    this.reservation._id = value;
   }
 }
 

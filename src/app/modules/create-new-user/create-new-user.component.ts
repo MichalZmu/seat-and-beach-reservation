@@ -10,7 +10,7 @@ import {AuthService} from '../../services/auth.service';
 })
 export class CreateNewUserComponent implements OnInit {
 
-  user: User = {email: '', firstName: '', id: null, lastName: '', password: '', phoneNumber: ''};
+  user: User = {email: '', firstName: '', _id: null, lastName: '', password: '', phoneNumber: ''};
   submitted = false;
   passwordConfirmation: string;
 
@@ -23,10 +23,6 @@ export class CreateNewUserComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-  }
-
-  get diagnostic() {
-    return JSON.stringify(this.user);
   }
 
   createUser(userForm) {

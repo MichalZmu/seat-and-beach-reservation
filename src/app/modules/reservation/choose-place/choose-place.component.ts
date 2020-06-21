@@ -1,8 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ReservationService, Reservation } from '../../../services/reservation.service';
 import * as moment from 'moment';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_NATIVE_DATE_FORMATS, MatDateFormats} from '@angular/material/core';
+import {AuthService} from '../../../services/auth.service';
+import {User} from '../../../models/user';
 
 export const MY_FORMATS = {
   parse: {
@@ -38,11 +40,19 @@ export class ChoosePlaceComponent implements OnInit {
   numberOfRows: number;
   reservations: Reservation[];
   @Output() currentStepChange = new EventEmitter<number>();
+  @Input() loggedUser: boolean;
+  user: User;
 
   constructor(
-    private reservationService: ReservationService) { }
+    private reservationService: ReservationService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+    if (this.authService.isAuth) {
+      this.authService.getCurrentUser(this.authService.userId).subscribe(user => {
+        this.user = user;
+      });
+    }
     this.numberOfColumns = this.reservationService.numberOfColumns;
     this.numberOfRows = this.reservationService.numberOfRows;
     this.beachWidth = this.numberOfColumns * 60 + this.numberOfColumns * 10 + 'px';
@@ -94,5 +104,24 @@ export class ChoosePlaceComponent implements OnInit {
     this.reservationService.dateFrom = moment(this.reservationDateFrom).startOf('day').toISOString();
     this.reservationService.dateTo = moment(this.reservationDateTo).endOf('day').toISOString();
     this.currentStepChange.emit(2);
+  }
+
+  makeReservation(): void {
+    this.reservationService.seatNumber = this.selectedSeat;
+    this.reservationService.dateFrom = moment(this.reservationDateFrom).startOf('day').toISOString();
+    this.reservationService.dateTo = moment(this.reservationDateTo).endOf('day').toISOString();
+    this.reservationService.firstName = this.user.firstName;
+    this.reservationService.lastName = this.user.lastName;
+    this.reservationService.email = this.user.email;
+    this.user.phoneNumber ? this.reservationService.phoneNumber = this.user.phoneNumber : this.reservationService.phoneNumber = '';
+    this.user._id ? this.reservationService.userId = this.user._id : this.reservationService.userId = '';
+
+    this.reservationService.addReservation().subscribe(data => {
+      console.log(data);
+      this.reservationService.id = data.reservationId;
+    });
+
+    this.currentStepChange.emit(3);
+
   }
 }

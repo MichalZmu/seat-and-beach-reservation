@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Reservation, ReservationService} from '../../services/reservation.service';
+import {AuthService} from '../../services/auth.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-user-panel',
@@ -8,12 +10,18 @@ import {Reservation, ReservationService} from '../../services/reservation.servic
 })
 export class UserPanelComponent implements OnInit {
   reservations: Reservation[];
+  user: User;
 
-  constructor(private reservationService: ReservationService) { }
+  constructor(private reservationService: ReservationService,
+              private authService: AuthService) {
+  }
 
   ngOnInit(): void {
-    this.reservationService.getAllReservationsByUserId('111111').subscribe(data => {
-      this.reservations = data;
+    this.authService.getCurrentUser(this.authService.userId).subscribe(user => {
+      this.user = user;
+      this.reservationService.getAllReservationsByUserId(this.user._id).subscribe(reservations => {
+        this.reservations = reservations;
+      });
     });
   }
 

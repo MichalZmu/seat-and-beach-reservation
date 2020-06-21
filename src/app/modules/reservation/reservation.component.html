@@ -1,2 +1,3 @@
-<app-choose-place *ngIf="step===1" (currentStepChange)="stepChange($event)"></app-choose-place>
-<app-user-data-step *ngIf="step===2"></app-user-data-step>
+<app-choose-place [loggedUser]="loggedUser" *ngIf="step===1" (currentStepChange)="stepChange($event)"></app-choose-place>
+<app-user-data-step (currentStepChange)="stepChange($event)" *ngIf="step===2"></app-user-data-step>
+<app-summary *ngIf="step===3"></app-summary>
