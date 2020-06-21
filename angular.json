@@ -119,6 +119,10 @@
               "devServerTarget": "seat-and-beach-reservation:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
