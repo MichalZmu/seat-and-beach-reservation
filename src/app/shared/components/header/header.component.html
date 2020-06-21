@@ -9,7 +9,7 @@
   </div>
   <div *ngIf="isAuthenticated && this.currentUser" class="login-button">
     <div (click)="goToUserPanel()">
-      <img src="../../../../assets/icons/user.svg" alt="user_icon">
+      <img src="assets/icons/user.svg" alt="user_icon">
       <span class="email-span">{{this.currentUser.email}}</span>
     </div>
     <span (click)="logout()" class="logout-span">WYLOGUJ SIĘ</span>
