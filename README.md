@@ -1,10 +1,10 @@
-# Reservate your 
+# Reserve your beach seat
 
-This project was created to demonstrate a simply game built with Angular.
+This project was created to demonstrate a beach seat reservation system. Perfect at the time of coronavirus.
 
 ## How it works
 
-The user manual is super easy, you just need to click on the "Next Card" botton to draw the card. 
+There are two ways - you can make a reservation without login or create an account and then, reserve your seat. All the reservations are stored in the cloud database (through MongoDB). You can easily display your reservations in user panel (when logged).  
 
 ## Getting started
 
