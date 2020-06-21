@@ -1,8 +1,8 @@
 <div class="home-container">
   <span class="ink-free-title">Zarezerwuj swoje miejsce</span>
   <div *ngIf="!isAuthenticated" class="arrow-container">
-    <img src="../../../assets/arrow-right.svg" class="left-arrow" alt="arrow_icon">
-    <img src="../../../assets/arrow-right.svg" alt="arrow_icon">
+    <img src="assets/arrow-right.svg" class="left-arrow" alt="arrow_icon">
+    <img src="assets/arrow-right.svg" alt="arrow_icon">
   </div>
   <div *ngIf="!isAuthenticated">
     <button class="standard-button" (click)="nextStep('withoutReservation')">Z LOGOWANIEM</button>
