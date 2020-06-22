@@ -1,60 +1,9 @@
 @import "../../shared/shared";
 
-:host {
-  background: url("../../../assets/bg-1920.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-}
-
-.home-container {
-  display: flex;
+.main-container {
   flex-direction: column;
   align-items: center;
 
-  .ink-free-title {
-    font-size: 105px;
-    font-family: "Ink Free";
-    margin-top: 340px;
-    color: #8f7d4a;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-  }
-
-  //.standard-button {
-  //  font-family: "Open Sans";
-  //  font-size: 20px;
-  //  color: #8f7d4a;
-  //  border-radius: 15px 15px 15px 15px;
-  //  -moz-border-radius: 15px 15px 15px 15px;
-  //  -webkit-border-radius: 15px 15px 15px 15px;
-  //  border: 4px solid #8f7d4a;
-  //  background: transparent;
-  //  font-weight: bold;
-  //  transition: all 0.3s ease 0s;
-  //  cursor: pointer;
-  //  margin: 0 10px;
-  //
-  //  width: 200px;
-  //  height: 60px;
-  //  margin-top: 40px;
-  //
-  //}
-  //
-  //.standard-button:hover {
-  //  color: white;
-  //  background: #8f7d4a;
-  //  transition: all 0.3s ease 0s;
-  //}
 
   .arrow-container {
     display: flex;

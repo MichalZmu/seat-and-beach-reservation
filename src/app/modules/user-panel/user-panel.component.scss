@@ -1,20 +1,5 @@
 @import "../../shared/shared";
 
-:host {
-  background: url("../../../assets/bg-1920.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-}
-
 .single-reservation {
   color: #8f7d4a;
 }
