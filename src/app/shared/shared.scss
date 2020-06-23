@@ -60,13 +60,54 @@ $color-brown: #8f7d4a;
   font-family: "Open Sans";
 }
 
-.ink-free-title {
-  font-size: 105px;
-  font-family: "Ink Free";
-  color: #8f7d4a;
-  display: flex;
-  justify-content: center;
-  text-align: center;
+@media (min-width: 1301px) {
+  .ink-free-title {
+    font-size: 105px;
+    font-family: "Ink Free";
+    color: #8f7d4a;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .main-container {
+    display: flex;
+    justify-content: center;
+
+    &__mar-high {
+      margin-top: 15%;
+    }
+
+    &__mar-low {
+      margin-top: 12%;
+    }
+  }
+
+}
+
+@media (min-width: 641px) and (max-width: 1300px) {
+  .main-container {
+    display: flex;
+    justify-content: center;
+
+    &__mar-high {
+      margin-top: 17%;
+    }
+
+    &__mar-low {
+      margin-top: 14%;
+    }
+  }
+
+  .ink-free-title {
+    width: 80%;
+    font-size: 70px;
+    font-family: "Ink Free";
+    color: #8f7d4a;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 @media (max-width: 640px) {
@@ -77,24 +118,12 @@ $color-brown: #8f7d4a;
   }
 
   .ink-free-title {
+    width: 80%;
     font-size: 50px;
     font-family: "Ink Free";
     color: #8f7d4a;
     display: flex;
     justify-content: center;
     text-align: center;
-  }
-}
-
-.main-container {
-  display: flex;
-  justify-content: center;
-
-  &__mar-high {
-    margin-top: 15%;
-  }
-
-  &__mar-low {
-    margin-top: 12%;
   }
 }
