@@ -11,6 +11,7 @@ import {User} from '../../models/user';
 export class UserPanelComponent implements OnInit {
   reservations: Reservation[];
   user: User;
+  isLoading = true;
 
   constructor(private reservationService: ReservationService,
               private authService: AuthService) {
@@ -21,6 +22,7 @@ export class UserPanelComponent implements OnInit {
       this.user = user;
       this.reservationService.getAllReservationsByUserId(this.user._id).subscribe(reservations => {
         this.reservations = reservations;
+        this.isLoading = false;
       });
     });
   }

@@ -28,7 +28,7 @@ export class AuthService {
   }
 
 
-  login(email: string, password: string) {
+  login(email: string, password: string): boolean {
     this.authData.email = email;
     this.authData.password = password;
     this.http.post<{ token: string, userId: string, expiresIn: any}>('https://seat-and-beach.herokuapp.com/api/user/login', this.authData).subscribe(response => {
@@ -44,9 +44,12 @@ export class AuthService {
         this._saveAuthData(this._token, expirationDate, this._userId);
         this.router.navigate(['/user-panel']);
       }
+      return true;
     }, error => {
       this.router.navigate(['/login-form']);
+      return false;
     });
+    return;
   }
 
   getCurrentUser(userId: string): Observable<any> {

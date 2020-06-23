@@ -1,6 +1,6 @@
 <div class="main-container main-container__mar-high">
   <h1 class="red-title">Powiedz nam coś o sobie:</h1>
-  <form #userForm="ngForm" (ngSubmit)="onSubmit()" [appMustMatch]="['password', 'passwordConf']">
+  <form *ngIf="!isLoading" #userForm="ngForm" (ngSubmit)="onSubmit()" [appMustMatch]="['password', 'passwordConf']">
     <div class="data-section">
       <div class="single-section">
         <div class="form-group">
@@ -47,4 +47,7 @@
     </div>
     <button type="submit" (click)="createUser(userForm);" class="standard-button">DALEJ</button>
   </form>
+  <div *ngIf="isLoading">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
 </div>

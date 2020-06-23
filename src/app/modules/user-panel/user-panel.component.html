@@ -1,6 +1,6 @@
 <div class="main-container main-container__mar-low">
   <h3 class="red-title">Moje rezerwacje:</h3>
-  <table>
+  <table *ngIf="!isLoading">
     <thead>
     <tr class="table-header">
       <th>Od:</th>
@@ -16,4 +16,5 @@
       </tr>
     </tbody>
   </table>
+  <mat-spinner color="warn" *ngIf="isLoading"></mat-spinner>
 </div>

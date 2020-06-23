@@ -15,6 +15,7 @@ export class LoginOrRegistrationComponent implements OnInit {
   password: string;
   submitted = false;
   formVal: any;
+  isLoading = false;
 
   constructor(private router: Router,
               private fb: FormBuilder,
@@ -39,8 +40,11 @@ export class LoginOrRegistrationComponent implements OnInit {
 
   login(): void {
     if (this.loginForm.status !== 'INVALID') {
-      this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
+      this.isLoading = true;
+      const loginResult = this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
+      if (!loginResult) {
+        this.isLoading = false;
+      }
     }
   }
-
 }

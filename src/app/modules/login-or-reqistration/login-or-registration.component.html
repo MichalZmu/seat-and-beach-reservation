@@ -1,5 +1,8 @@
 <div class="main-container main-container__mar-high">
-  <div class="login-container">
+  <div *ngIf="isLoading">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
+  <div class="login-container" *ngIf="!isLoading">
     <h3 class="red-title">Zaloguj się</h3>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -13,7 +16,7 @@
       <button type="submit" (click)="login()" class="standard-button-small">Zaloguj się</button>
     </form>
   </div>
-  <div class="registration-container">
+  <div *ngIf="!isLoading" class="registration-container">
     <h3 class="red-title">Nie masz konta?</h3>
     <button class="standard-button" (click)="goToRegistrationForm()">Zarejestruj się</button>
   </div>
