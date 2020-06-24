@@ -1,30 +1,32 @@
-<div class ="choose-place-container" *ngIf="!dataChoosed">
-    Wybierz tremin
-    <div class="datepicker">
-        <mat-form-field>
-            <input  [(ngModel)]="reservationDateFrom" matInput [matDatepicker]="pickerFrom" placeholder="Choose a date">
-        </mat-form-field>
-        <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
-      <mat-datepicker #pickerFrom></mat-datepicker>
-    </div>
-    <div class="datepicker">
-        <mat-form-field>
-            <input  [(ngModel)]="reservationDateTo" matInput [matDatepicker]="pickerTo" placeholder="Choose a date">
-        </mat-form-field>
-        <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
-      <mat-datepicker #pickerTo></mat-datepicker>
-    </div>
-<button class="standard-button-small" (click)="isDataChoosed()" >Dalej</button>
+<div class="choose-place-container" *ngIf="!dataChoosed">
+  <h3 class="ink-free-title">Wybierz termin</h3>
+  <div class="datepicker">
+    <mat-form-field>
+      <input [(ngModel)]="reservationDateFrom" matInput [matDatepicker]="pickerFrom" placeholder="Choose a date">
+    </mat-form-field>
+    <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+    <mat-datepicker #pickerFrom></mat-datepicker>
+  </div>
+  <div class="datepicker">
+    <mat-form-field>
+      <input [(ngModel)]="reservationDateTo" matInput [matDatepicker]="pickerTo" placeholder="Choose a date">
+    </mat-form-field>
+    <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+    <mat-datepicker #pickerTo></mat-datepicker>
+  </div>
+  <button class="standard-button-small" (click)="isDataChoosed()">Dalej</button>
+  <p class="color-red" *ngIf="showError">Rezerwacje mogę być wykonywane tylko w przód</p>
 </div>
 <div class="choose-place-container" *ngIf="dataChoosed">
-    Wybierz miejsce
-    <div [style.width]="beachWidth" class="grid">
-        <div [style.border]="selectedSeat === place ? 'solid #00c7f5 2px' : null" (click)="choosePlace(place)" class="place" *ngFor="let place of places;">
+  <h3 class="ink-free-title">Wybierz miejsce</h3>
+  <div [style.width]="beachWidth" class="grid">
+    <div [style.border]="selectedSeat === place ? 'solid #00c7f5 2px' : null" (click)="choosePlace(place)" class="place"
+         *ngFor="let place of places;">
             <span *ngIf="!isPlaceAvaiable(place)" class="material-icons">
                 close
             </span>
-        </div>
     </div>
-  <button *ngIf="!loggedUser" class="standard-button-small" (click)="nextStep()" >Dalej</button>
-  <button *ngIf="loggedUser" class="standard-button-small" (click)="makeReservation()" >Rezerwuj</button>
+  </div>
+  <button *ngIf="!loggedUser" class="standard-button-small" (click)="nextStep()">Dalej</button>
+  <button *ngIf="loggedUser" class="standard-button-small" (click)="makeReservation()">Rezerwuj</button>
 </div>

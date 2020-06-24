@@ -15,7 +15,7 @@ export class LoginOrRegistrationComponent implements OnInit {
   password: string;
   submitted = false;
   formVal: any;
-  isLoading = false;
+  isLoading: boolean;
 
   constructor(private router: Router,
               private fb: FormBuilder,
@@ -27,6 +27,7 @@ export class LoginOrRegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = false;
   }
 
   goToRegistrationForm(): void {
@@ -35,16 +36,18 @@ export class LoginOrRegistrationComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
+    this.isLoading = true;
     this.formVal = this.loginForm.value;
   }
 
   login(): void {
     if (this.loginForm.status !== 'INVALID') {
-      this.isLoading = true;
-      const loginResult = this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
-      if (!loginResult) {
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe( () => {
         this.isLoading = false;
-      }
+        this.router.navigate(['/user-panel']);
+      }, error => {
+        this.isLoading = false;
+      });
     }
   }
 }

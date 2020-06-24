@@ -42,6 +42,7 @@ export class ChoosePlaceComponent implements OnInit {
   @Output() currentStepChange = new EventEmitter<number>();
   @Input() loggedUser: boolean;
   user: User;
+  showError = false;
 
   constructor(
     private reservationService: ReservationService,
@@ -72,12 +73,17 @@ export class ChoosePlaceComponent implements OnInit {
   }
 
   isDataChoosed(): void {
+    const now = new Date();
     if (this.reservationDateFrom && this.reservationDateTo) {
-      console.log(this.reservationDateTo, this.reservationDateFrom);
-      this.dataChoosed = true;
-      this.reservationService.getReservations(this.reservationDateFrom, this.reservationDateTo).subscribe(data => {
-        this.reservations = data;
-      });
+      if (this.reservationDateFrom <= now || this.reservationDateTo <= now) {
+        this.showError = true;
+      } else {
+        console.log(this.reservationDateTo, this.reservationDateFrom);
+        this.dataChoosed = true;
+        this.reservationService.getReservations(this.reservationDateFrom, this.reservationDateTo).subscribe(data => {
+          this.reservations = data;
+        });
+      }
     }
   }
 

@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {User} from '../models/user';
 import {Observable, Subject} from 'rxjs';
 import {Router} from '@angular/router';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -27,11 +28,10 @@ export class AuthService {
     return this.http.post('https://seat-and-beach.herokuapp.com/api/user/sign-up', user);
   }
 
-
-  login(email: string, password: string): boolean {
+  login(email: string, password: string): Observable<any> {
     this.authData.email = email;
     this.authData.password = password;
-    this.http.post<{ token: string, userId: string, expiresIn: any}>('https://seat-and-beach.herokuapp.com/api/user/login', this.authData).subscribe(response => {
+    return this.http.post<{ token: string, userId: string, expiresIn: any}>('https://seat-and-beach.herokuapp.com/api/user/login', this.authData).pipe(map(response => {
       this._userId = response.userId;
       this._token = response.token;
       if (this._token) {
@@ -42,14 +42,9 @@ export class AuthService {
         const now = new Date();
         const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
         this._saveAuthData(this._token, expirationDate, this._userId);
-        this.router.navigate(['/user-panel']);
       }
-      return true;
-    }, error => {
-      this.router.navigate(['/login-form']);
-      return false;
-    });
-    return;
+      return response;
+    }));
   }
 
   getCurrentUser(userId: string): Observable<any> {
