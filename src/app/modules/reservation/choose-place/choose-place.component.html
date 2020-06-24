@@ -15,7 +15,7 @@
     <mat-datepicker #pickerTo></mat-datepicker>
   </div>
   <button class="standard-button-small" (click)="isDataChoosed()">Dalej</button>
-  <p class="color-red" *ngIf="showError">Rezerwacje mogę być wykonywane tylko w przód</p>
+  <p class="color-red" *ngIf="showError">Rezerwacja dat z przeszłości jest niemożliwa</p>
 </div>
 <div class="choose-place-container" *ngIf="dataChoosed">
   <h3 class="ink-free-title">Wybierz miejsce</h3>
