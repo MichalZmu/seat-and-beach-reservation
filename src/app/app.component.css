@@ -17,11 +17,12 @@
 
 @media (max-width: 991px) {
   :host {
-    background: url("src/assets/bg-992.jpg") no-repeat top center fixed;
+    background: url("src/assets/bg-992.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow: auto;
 
     position: fixed;
     top: 0;
@@ -29,5 +30,6 @@
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    overflow: auto;
   }
 }
