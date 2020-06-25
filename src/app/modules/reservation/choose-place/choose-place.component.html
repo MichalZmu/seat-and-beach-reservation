@@ -19,13 +19,16 @@
 </div>
 <div class="main-container" *ngIf="dataChoosed">
   <h3 class="ink-free-title">Wybierz miejsce</h3>
-  <div [style.width]="beachWidth" class="grid">
+  <div *ngIf="!isLoading" [style.width]="beachWidth" class="grid">
     <div [style.border]="selectedSeat === place ? 'solid #00c7f5 2px' : null" (click)="choosePlace(place)" class="place"
          *ngFor="let place of places;">
             <span *ngIf="!isPlaceAvaiable(place)" class="material-icons">
                 close
             </span>
     </div>
+  </div>
+  <div *ngIf="isLoading">
+    <mat-spinner color="warn"></mat-spinner>
   </div>
   <div class="button-section">
     <button *ngIf="!loggedUser" class="standard-button-small" (click)="goBack()">Cofnij</button>

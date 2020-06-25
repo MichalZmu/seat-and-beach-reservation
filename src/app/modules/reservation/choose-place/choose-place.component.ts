@@ -43,6 +43,7 @@ export class ChoosePlaceComponent implements OnInit {
   @Input() loggedUser: boolean;
   user: User;
   showError = false;
+  isLoading = false;
 
   constructor(
     private reservationService: ReservationService,
@@ -78,9 +79,13 @@ export class ChoosePlaceComponent implements OnInit {
       if (this.reservationDateFrom <= now || this.reservationDateTo <= now) {
         this.showError = true;
       } else {
+        this.isLoading = true;
         this.dataChoosed = true;
         this.reservationService.getReservations(this.reservationDateFrom, this.reservationDateTo).subscribe(data => {
           this.reservations = data;
+          this.isLoading = false;
+        }, error => {
+          this.isLoading = false;
         });
       }
     }

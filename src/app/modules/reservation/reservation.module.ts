@@ -13,6 +13,7 @@ import {MustMatchDirective} from '../../directives/must-match.directive';
 import { ReservationComponent } from './reservation.component';
 import { SummaryComponent } from './summary/summary.component';
 import {RouterModule} from '@angular/router';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [ChoosePlaceComponent,
@@ -20,17 +21,18 @@ import {RouterModule} from '@angular/router';
   MustMatchDirective,
   ReservationComponent,
   SummaryComponent],
-    imports: [
-        CommonModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatFormFieldModule,
-        MatButtonModule,
-        FormsModule,
-        RouterModule,
-    ],
+  imports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    RouterModule,
+    MatProgressSpinnerModule,
+  ],
   exports: [ChoosePlaceComponent,
   MustMatchDirective]
 })
