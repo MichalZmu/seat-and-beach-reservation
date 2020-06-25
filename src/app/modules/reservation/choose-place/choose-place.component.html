@@ -31,7 +31,7 @@
     <mat-spinner color="warn"></mat-spinner>
   </div>
   <div class="button-section">
-    <button *ngIf="!loggedUser" class="standard-button-small" (click)="goBack()">Cofnij</button>
+    <button class="standard-button-small" (click)="goBack()">Cofnij</button>
     <button *ngIf="!loggedUser" class="standard-button-small" (click)="nextStep()">Dalej</button>
     <button *ngIf="loggedUser" class="standard-button-small" (click)="makeReservation()">Rezerwuj</button>
   </div>
