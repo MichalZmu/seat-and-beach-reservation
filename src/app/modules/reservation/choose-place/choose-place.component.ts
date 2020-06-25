@@ -78,7 +78,6 @@ export class ChoosePlaceComponent implements OnInit {
       if (this.reservationDateFrom <= now || this.reservationDateTo <= now) {
         this.showError = true;
       } else {
-        console.log(this.reservationDateTo, this.reservationDateFrom);
         this.dataChoosed = true;
         this.reservationService.getReservations(this.reservationDateFrom, this.reservationDateTo).subscribe(data => {
           this.reservations = data;
@@ -110,6 +109,10 @@ export class ChoosePlaceComponent implements OnInit {
     this.reservationService.dateFrom = moment(this.reservationDateFrom).startOf('day').toISOString();
     this.reservationService.dateTo = moment(this.reservationDateTo).endOf('day').toISOString();
     this.currentStepChange.emit(2);
+  }
+
+  goBack(): void {
+    this.dataChoosed = false;
   }
 
   makeReservation(): void {

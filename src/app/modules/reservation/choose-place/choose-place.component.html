@@ -1,4 +1,4 @@
-<div class="choose-place-container" *ngIf="!dataChoosed">
+<div class="main-container" *ngIf="!dataChoosed">
   <h3 class="ink-free-title">Wybierz termin</h3>
   <div class="datepicker">
     <mat-form-field>
@@ -17,7 +17,7 @@
   <button class="standard-button-small" (click)="isDataChoosed()">Dalej</button>
   <p class="color-red" *ngIf="showError">Rezerwacja dat z przeszłości jest niemożliwa</p>
 </div>
-<div class="choose-place-container" *ngIf="dataChoosed">
+<div class="main-container" *ngIf="dataChoosed">
   <h3 class="ink-free-title">Wybierz miejsce</h3>
   <div [style.width]="beachWidth" class="grid">
     <div [style.border]="selectedSeat === place ? 'solid #00c7f5 2px' : null" (click)="choosePlace(place)" class="place"
@@ -27,6 +27,9 @@
             </span>
     </div>
   </div>
-  <button *ngIf="!loggedUser" class="standard-button-small" (click)="nextStep()">Dalej</button>
-  <button *ngIf="loggedUser" class="standard-button-small" (click)="makeReservation()">Rezerwuj</button>
+  <div class="button-section">
+    <button *ngIf="!loggedUser" class="standard-button-small" (click)="goBack()">Cofnij</button>
+    <button *ngIf="!loggedUser" class="standard-button-small" (click)="nextStep()">Dalej</button>
+    <button *ngIf="loggedUser" class="standard-button-small" (click)="makeReservation()">Rezerwuj</button>
+  </div>
 </div>

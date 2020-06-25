@@ -21,8 +21,12 @@ export class UserDataStepComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
+  }
+
+  goBack(): void {
+    this.currentStepChange.emit(1);
   }
 
   nextStep(userForm) {

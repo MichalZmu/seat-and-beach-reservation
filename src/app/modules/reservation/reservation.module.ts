@@ -12,6 +12,7 @@ import {UserDataStepComponent} from './user-data-step/user-data-step.component';
 import {MustMatchDirective} from '../../directives/must-match.directive';
 import { ReservationComponent } from './reservation.component';
 import { SummaryComponent } from './summary/summary.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [ChoosePlaceComponent,
@@ -19,16 +20,17 @@ import { SummaryComponent } from './summary/summary.component';
   MustMatchDirective,
   ReservationComponent,
   SummaryComponent],
-  imports: [
-    CommonModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    FormsModule,
-  ],
+    imports: [
+        CommonModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        FormsModule,
+        RouterModule,
+    ],
   exports: [ChoosePlaceComponent,
   MustMatchDirective]
 })

@@ -42,6 +42,10 @@
     align-items: center;
   }
 
+  .button-section {
+    display: flex;
+  }
+
 }
 
 .ng-valid[required], .ng-valid.required {

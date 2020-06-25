@@ -1,9 +1,11 @@
 <div class="main-container main-container__mar-high">
   <h3 class="ink-free-title">Podsumowanie</h3>
+  <p class="red-title">Dziękujemy za rezerwację!</p>
   <div class="data-section">
     <p>Numer rezerwacji: {{this.reservation._id}}</p>
     <p>Rezerwacja od: {{this.reservation.dateFrom | date:'dd/LL/y'}}</p>
     <p>Rezerwacja do: {{this.reservation.dateTo | date:'dd/LL/y'}}</p>
     <p>Numer miejsca: {{this.reservation.seatNumber}}</p>
   </div>
+  <button [routerLink]="['/']" class="standard-button-small">Strona główna</button>
 </div>

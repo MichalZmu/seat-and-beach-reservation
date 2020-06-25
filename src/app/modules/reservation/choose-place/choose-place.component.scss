@@ -1,21 +1,14 @@
 @import "../../../shared/shared";
 
-.choose-place-container {
-  position: relative;
+.main-container {
+  margin-top: 15%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 300px;
   color: #8f7d4a;
   display: flex;
   justify-content: center;
   text-align: center;
-
-  z-index: 2;
-  -webkit-transition: all .8s ease-in-out;
-  -moz-transition: all .8s ease-in-out;
-  -o-transition: all .8s ease-in-out;
-  transition: all .8s ease-in-out;
 
   .datepicker {
     font-size: 18px;
@@ -31,11 +24,15 @@
     color: red;
   }
 
+  .button-section {
+    display: flex;
+  }
+
 }
 
-.choose-place-container:target {
-  margin-top: 0%;
-}
+//.choose-place-container:target {
+//  margin-top: 0%;
+//}
 
 .grid {
   position: relative;
