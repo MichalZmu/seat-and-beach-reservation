@@ -4,25 +4,16 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   flex-direction: row;
 }
 
-.nav-main {
+.navbar-nav {
+  font-size: 20px;
   font-family: "Open Sans";
-  margin-left: 150px;
-  margin-right: 150px;
-  margin-top: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  color: white;
 
-  .nav-links {
-    line-height: 1.22;
-    letter-spacing: 1.35px;
-    font-size: 22px;
+  li {
+    margin: 0 10px;
   }
 
   a {
-    color: white;
-    text-decoration: none;
-    margin-right: 40px;
     transition: all 0.3s ease 0s;
   }
 
@@ -33,7 +24,6 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
   .login-button {
     text-align: right;
-    font-size: 20px;
     color: white;
     cursor: pointer;
     display: flex;
@@ -58,3 +48,15 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 .clicked {
   border-bottom: solid white 2px;
 }
+
+.navbar-nav .nav-item .nav-link {
+  color: white;
+  font-family: "Open Sans";
+}
+
+@media (min-width: 641px) {
+  .navbar {
+    padding-top: 20px;
+  }
+}
+
