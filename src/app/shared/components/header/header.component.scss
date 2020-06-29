@@ -27,7 +27,6 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
     .email-span {
       padding-right: 10px;
-      border-right: 2px solid white;
     }
 
     .logout-span {
@@ -57,8 +56,13 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 
 @media (max-width: 991px) {
+  .navbar {
+    min-height: 170px;
+  }
+
   .navbar-nav .nav-item .nav-link {
     color: $color-brown;
+    min-height: 50px;
   }
 
   .clicked {
@@ -88,6 +92,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 
 @media (min-width: 992px) {
+
   .navbar-nav .nav-item .nav-link {
     color: white;
   }
@@ -102,6 +107,10 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
   .login-button {
     color: white;
+
+    .email-span {
+      border-right: 2px solid white;
+    }
   }
 
   .navbar-nav .nav-item .login-button {
