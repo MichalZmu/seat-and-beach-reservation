@@ -1,8 +1,6 @@
+@import "src/app/shared/shared";
+
 html, body {margin: 0; height: 100%; overflow: hidden}
-.nav-container {
-  display: flex;
-  flex-direction: row;
-}
 
 .navbar-nav {
   font-size: 20px;
@@ -18,7 +16,6 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   }
 
   a:hover {
-    border-bottom: solid white 2px;
     transition: all 0.3s ease 0s;
   }
 
@@ -51,12 +48,65 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
 .navbar-nav .nav-item .nav-link {
   color: white;
-  font-family: "Open Sans";
 }
 
 @media (min-width: 641px) {
   .navbar {
     padding-top: 20px;
   }
+}
+
+@media (max-width: 991px) {
+  .navbar-nav .nav-item .nav-link {
+    color: $color-brown;
+  }
+
+  .clicked {
+    border-bottom: solid $color-brown 2px;
+  }
+
+  a:hover {
+    border-bottom: solid $color-brown 2px;
+  }
+
+  .login-button {
+    color: $color-brown;
+
+    .email-span {
+      border-right: 2px solid $color-brown;
+    }
+
+    img {
+      display: none;
+    }
+  }
+
+  .navbar-nav .nav-item .login-button {
+    color: $color-brown;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .navbar-nav .nav-item .nav-link {
+    color: white;
+  }
+
+  .clicked {
+    border-bottom: solid white 2px;
+  }
+
+  a:hover {
+    border-bottom: solid white 2px;
+  }
+
+  .login-button {
+    color: white;
+  }
+
+  .navbar-nav .nav-item .login-button {
+    color: white;
+  }
+
 }
 

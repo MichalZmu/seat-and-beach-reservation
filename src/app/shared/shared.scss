@@ -60,7 +60,7 @@ $color-brown: #8f7d4a;
   font-family: "Open Sans";
 }
 
-@media (min-width: 1301px) {
+@media (min-width: 1200px) {
   .ink-free-title {
     font-size: 100px;
     font-family: "Ink Free";
@@ -85,7 +85,7 @@ $color-brown: #8f7d4a;
 
 }
 
-@media (min-width: 992px) and (max-width: 1300px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   .main-container {
     display: flex;
     justify-content: center;
@@ -110,7 +110,7 @@ $color-brown: #8f7d4a;
   }
 }
 
-@media (min-width: 641px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .main-container {
     display: flex;
     justify-content: center;
@@ -135,7 +135,7 @@ $color-brown: #8f7d4a;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .main-container {
     margin-top: 20%;
     display: flex;

@@ -2,18 +2,23 @@
 
 
 .main-container {
-  display: flex;
-  justify-content: center;
 
   .red-title {
     margin-bottom: 30px;
   }
 
-  .login-container {
-    padding: 0 40px;
+  .row {
+    justify-content: center;
+  }
+
+  .col {
+    margin: 20px;
+  }
+
+  .container {
     text-align: center;
-    min-width: 300px;
-    border-right: #8f7d4a 2px solid;
+    justify-items: center;
+
 
     .form-group {
       text-align: left;
@@ -21,9 +26,17 @@
   }
 
   .registration-container {
-    margin: 0 40px;
+    border-left: #8f7d4a 2px solid;
+    display: flex;
+    flex-direction: column;
     min-width: 300px;
     text-align: center;
+    align-items: center;
+    min-height: 200px;
+  }
+
+  .login-section {
+    padding: 0 50px;
   }
 }
 
@@ -33,7 +46,16 @@
 
 .not-valid {
   border-left: 5px solid red;
-  background:  #ffb3b3;
+  background: #ffb3b3;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    .registration-container {
+      border-left: none;
+      margin-top: 40px;
+    }
+  }
 }
 
 
