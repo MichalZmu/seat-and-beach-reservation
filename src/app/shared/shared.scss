@@ -5,6 +5,12 @@ $color-brown: #8f7d4a;
   src: url('src/assets/fonts/Yellowtail-Regular.ttf') format("opentype");
 }
 
+.main-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
 .standard-button {
   font-family: "Open Sans";
   font-size: 20px;
@@ -76,8 +82,6 @@ $color-brown: #8f7d4a;
   }
 
   .main-container {
-    display: flex;
-    justify-content: center;
 
     &__mar-high {
       margin-top: 15%;
@@ -92,8 +96,6 @@ $color-brown: #8f7d4a;
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .main-container {
-    display: flex;
-    justify-content: center;
 
     &__mar-high {
       margin-top: 15%;
@@ -117,8 +119,6 @@ $color-brown: #8f7d4a;
 
 @media (min-width: 768px) and (max-width: 991px) {
   .main-container {
-    display: flex;
-    justify-content: center;
 
     &__mar-high {
       margin-top: 5%;
@@ -143,8 +143,6 @@ $color-brown: #8f7d4a;
 @media (max-width: 767px) {
 
   .main-container {
-    display: flex;
-    justify-content: center;
 
     &__mar-high {
       margin-top: 10px;
