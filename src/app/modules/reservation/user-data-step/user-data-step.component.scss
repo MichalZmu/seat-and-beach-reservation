@@ -1,16 +1,15 @@
 @import "../../../shared/shared";
 
-.user-data-container {
-  margin-top: 280px;
+.main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 
   .red-title {
     color: #ff675a;
     font-family: "Open Sans";
     margin-bottom: 40px;
+    text-align: center;
   }
 
   input {
@@ -25,6 +24,7 @@
 
   .single-section {
     display: flex;
+    justify-content: center;
 
     .form-group {
       padding: 0 20px;

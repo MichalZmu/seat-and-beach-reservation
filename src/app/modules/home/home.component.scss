@@ -20,3 +20,16 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+
+  .main-container .arrow-container {
+    display: none;
+  }
+
+  .buttons {
+    width: 200px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}

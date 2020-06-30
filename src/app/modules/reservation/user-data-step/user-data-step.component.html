@@ -1,8 +1,8 @@
-<div class="user-data-container">
+<div class="container main-container main-container__mar-high">
   <h1 class="red-title">Powiedz nam coś o sobie:</h1>
   <form #userForm="ngForm" (ngSubmit)="onSubmit()" [appMustMatch]="['password', 'passwordConf']">
     <div class="data-section">
-      <div class="single-section">
+      <div class="single-section row">
         <div class="form-group">
           <label for="firstName">Imię:</label>
           <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" #firstName="ngModel"
@@ -14,7 +14,7 @@
                  [class.not-valid]="submitted && lastName.invalid" name="lastName" required>
         </div>
       </div>
-      <div class="single-section">
+      <div class="single-section row">
         <div class="form-group">
           <label for="phoneNumber">Telefon kontaktowy:</label>
           <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber"

@@ -36,10 +36,6 @@ html, body {
 
 }
 
-.clicked {
-  border-bottom: solid white 2px;
-}
-
 .navbar-nav .nav-item .nav-link {
   color: white;
 }
@@ -51,13 +47,17 @@ html, body {
 }
 
 @media (max-width: 991px) {
+  .navbar {
+    border-bottom: solid $color-brown 2px;
+  }
+
   .main-nav {
     .clicked {
-      border-bottom: solid $color-brown 2px;
+      font-weight: bold;
     }
 
     a:hover {
-      border-bottom: solid $color-brown 2px;
+      font-weight: bold;
     }
   }
 
@@ -105,6 +105,10 @@ html, body {
 
   .navbar-nav .nav-item .login-button {
     color: white;
+  }
+
+  .clicked {
+    border-bottom: solid white 2px;
   }
 
 }

@@ -4,12 +4,13 @@
     <img src="assets/arrow-right.svg" class="left-arrow" alt="arrow_icon">
     <img src="assets/arrow-right.svg" alt="arrow_icon">
   </div>
-  <div *ngIf="!isAuthenticated">
-    <button class="standard-button" (click)="nextStep('withoutReservation')">Z LOGOWANIEM</button>
-    <button class="standard-button" (click)="nextStep('reservation')">BEZ LOGOWANIA</button>
+  <div class="buttons">
+    <div *ngIf="!isAuthenticated">
+      <button class="standard-button" (click)="nextStep('withoutReservation')">Z LOGOWANIEM</button>
+      <button class="standard-button" (click)="nextStep('reservation')">BEZ LOGOWANIA</button>
+    </div>
+    <div *ngIf="isAuthenticated">
+      <button class="standard-button" (click)="nextStep('reservation')">START</button>
+    </div>
   </div>
-  <div *ngIf="isAuthenticated">
-    <button class="standard-button" (click)="nextStep('reservation')">START</button>
-  </div>
-
 </div>
