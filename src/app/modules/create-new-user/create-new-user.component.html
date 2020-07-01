@@ -45,7 +45,10 @@
         </div>
       </div>
     </div>
-    <button type="submit" (click)="createUser(userForm);" class="standard-button">DALEJ</button>
+    <div class="row button-section">
+      <button [routerLink]="['/login-form']" class="standard-button-small">COFNIJ</button>
+      <button type="submit" (click)="createUser(userForm);" class="standard-button-small">DALEJ</button>
+    </div>
   </form>
   <div *ngIf="isLoading">
     <mat-spinner color="warn"></mat-spinner>
