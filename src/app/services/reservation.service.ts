@@ -7,10 +7,9 @@ import {Observable, Subject} from 'rxjs';
 })
 export class ReservationService {
 
-  numberOfColumns = 7;
-  numberOfRows = 4;
+  numberOfColumns = 5;
+  numberOfRows = 3;
 
-  reservationUpdated = new Subject<Reservation[]>();
   reservation: Reservation = {
     _id: null,
     dateFrom: null,
@@ -22,8 +21,6 @@ export class ReservationService {
     phoneNumber: '',
     email: ''
   };
-
-  reservations: Reservation[] = [];
 
   constructor(private http: HttpClient) {
   }
