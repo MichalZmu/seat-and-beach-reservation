@@ -1,8 +1,3 @@
-html, body {
-  height: 100%;
-  overflow: auto;
-}
-
 @media (min-width: 992px) {
   body {
     background: url("src/assets/bg-1920-2.jpg") no-repeat top center fixed;
