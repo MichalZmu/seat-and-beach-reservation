@@ -5,6 +5,11 @@ $color-brown: #8f7d4a;
   src: url('src/assets/fonts/Yellowtail-Regular.ttf') format("opentype");
 }
 
+@font-face {
+  font-family: "Open Sans";
+  src: url('src/assets/fonts/OpenSans-Regular.ttf') format("opentype");
+}
+
 .main-container {
   display: flex;
   justify-content: center;

@@ -30,7 +30,7 @@
   <div *ngIf="isLoading">
     <mat-spinner color="warn"></mat-spinner>
   </div>
-  <div class="button-section">
+  <div class="button-section" *ngIf="!isLoading">
     <button class="standard-button-small" (click)="goBack()">Cofnij</button>
     <button *ngIf="!loggedUser" class="standard-button-small" (click)="nextStep()">Dalej</button>
     <button *ngIf="loggedUser" class="standard-button-small" (click)="makeReservation()">Rezerwuj</button>
