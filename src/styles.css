@@ -1,5 +1,9 @@
+html, body {
+  height: 100%;
+}
+
 @media (min-width: 992px) {
-  html, body {
+  body {
     background: url("src/assets/bg-1920-2.jpg") no-repeat top center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -16,7 +20,7 @@
 }
 
 @media (max-width: 991px) {
-  html, body {
+  body {
     background: url("src/assets/bg-992.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
