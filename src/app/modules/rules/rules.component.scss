@@ -3,14 +3,16 @@
 .main-container {
   flex-direction: column;
   align-items: center;
+
+  .content {
+    margin-top: 20px;
+    width: 90%;
+  }
+
+  li {
+    color: $color-brown;
+  }
 }
 
-li {
-  color: $color-brown;
-}
-
-ol {
-  width: 500px;
-}
 
 
