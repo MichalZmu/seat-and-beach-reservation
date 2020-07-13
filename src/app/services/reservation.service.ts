@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable, Subject} from 'rxjs';
+import {Observable} from 'rxjs';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,9 @@ export class ReservationService {
   }
 
   getReservations(dateFrom, dateTo): Observable<Reservation[]> {
-    const params = new HttpParams().set('DateFrom', dateFrom.toISOString()).set('HourFrom', dateTo.toISOString());
+    const paramDateFrom = moment(dateFrom).startOf('day').toISOString();
+    const paramDateTo = moment(dateTo).endOf('day').toISOString();
+    const params = new HttpParams().set('dateFrom', paramDateFrom).set('dateTo', paramDateTo);
     return this.http.get<Reservation[]>('https://seat-and-beach.herokuapp.com/api/reservations', { params });
   }
 

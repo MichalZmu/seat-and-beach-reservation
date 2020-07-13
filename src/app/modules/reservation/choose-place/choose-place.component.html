@@ -19,6 +19,7 @@
 </div>
 <div class="main-container main-container__mar-high" *ngIf="dataChoosed">
   <h3 class="ink-free-title">Wybierz miejsce</h3>
+  <p>{{reservationDateFrom | date:'dd/LL/y'}} - {{reservationDateTo | date:'dd/LL/y'}}</p>
   <div *ngIf="!isLoading" [style.width]="beachWidth" class="grid">
     <div [style.border]="selectedSeat === place ? 'solid #00c7f5 2px' : null" (click)="choosePlace(place)" class="place"
          *ngFor="let place of places;">
