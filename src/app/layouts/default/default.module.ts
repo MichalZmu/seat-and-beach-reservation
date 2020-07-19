@@ -13,6 +13,7 @@ import {UserPanelComponent} from '../../modules/user-panel/user-panel.component'
 import {RulesComponent} from '../../modules/rules/rules.component';
 import {ContactComponent} from '../../modules/contact/contact.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [DefaultComponent,
@@ -24,15 +25,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     RulesComponent,
     ContactComponent
     ],
-    imports: [
-        CommonModule,
-        SharedModule,
-        RouterModule,
-        ReservationModule,
-        RouterModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatProgressSpinnerModule
-    ]
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule,
+    ReservationModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
+  ]
 })
 export class DefaultModule { }

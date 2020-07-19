@@ -1,20 +1,23 @@
 <div class="main-container main-container__mar-low">
   <h3 class="red-title">Moje rezerwacje:</h3>
-  <table *ngIf="!isLoading">
-    <thead>
-    <tr class="table-header">
-      <th>Od:</th>
-      <th>Do:</th>
-      <th>Numer miejsca:</th>
-    </tr>
-    </thead>
-    <tbody>
+  <div class="content" *ngIf="!isLoading">
+    <table>
+      <thead>
+      <tr class="table-header">
+        <th>Od:</th>
+        <th>Do:</th>
+        <th>Numer miejsca:</th>
+      </tr>
+      </thead>
+      <tbody>
       <tr class="single-reservation" *ngFor="let reservation of reservations">
         <td>{{reservation.dateFrom | date:'dd/LL/y'}}</td>
         <td>{{reservation.dateTo | date:'dd/LL/y'}}</td>
         <td>{{reservation.seatNumber}}</td>
       </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+    <mat-paginator class="custom-mat-paginator" [length]="totalReservations" [pageSize]="reservationsPerPage" (page)="onChangePage($event)"></mat-paginator>
+  </div>
   <mat-spinner color="warn" *ngIf="isLoading"></mat-spinner>
 </div>

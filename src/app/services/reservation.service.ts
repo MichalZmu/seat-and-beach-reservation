@@ -37,8 +37,12 @@ export class ReservationService {
     return this.http.get<Reservation[]>('https://seat-and-beach.herokuapp.com/api/reservations', { params });
   }
 
-  getAllReservationsByUserId(userId): Observable<Reservation[]> {
-    const params = new HttpParams().set('userId', userId);
+  getAllReservationsByUserId(userId: string, pageSize?: string, currentPage?: string): Observable<any> {
+    let params = new HttpParams().append('userId', userId);
+    if (pageSize && currentPage) {
+      params = params.append('pageSize', pageSize);
+      params = params.append('currentPage', currentPage);
+    }
     return this.http.get<Reservation[]>('https://seat-and-beach.herokuapp.com/api/reservations/user', { params});
   }
 
