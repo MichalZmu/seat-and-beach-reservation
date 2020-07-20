@@ -15,7 +15,6 @@ export class LoginOrRegistrationComponent implements OnInit {
   email: string;
   password: string;
   submitted = false;
-  formVal: any;
   isLoading: boolean;
 
   constructor(private router: Router,
@@ -37,11 +36,10 @@ export class LoginOrRegistrationComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    this.isLoading = true;
-    this.formVal = this.loginForm.value;
   }
 
   login(): void {
+    this.isLoading = true;
     if (this.loginForm.status !== 'INVALID') {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe( () => {
         this.isLoading = false;
@@ -49,6 +47,8 @@ export class LoginOrRegistrationComponent implements OnInit {
       }, error => {
         this.isLoading = false;
       });
+    } else {
+      this.isLoading = false;
     }
   }
 }
