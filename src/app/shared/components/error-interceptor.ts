@@ -18,12 +18,13 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(catchError((error: HttpErrorResponse) => {
       let dialogMessage;
       if (error.status === 500 && error.error.message === 'emailAlreadyExist') {
-        dialogMessage = 'Ten adres email jest już w naszej bazie, proszę użyć innego lub zalogować się';
+        dialogMessage = 'emailAlreadyExist';
       } else if (error.status === 401 && error.error.message === 'IncorrectEmailOrPassword') {
         this.router.navigate(['/login-form']);
-        dialogMessage = 'Nieprawidłowy email i/lub hasło';
+        dialogMessage = 'IncorrectEmailOrPassword';
       } else {
-        dialogMessage = 'Coś poszło nie tak, proszę spróbować jeszcze raz';
+        this.router.navigateByUrl('error');
+        dialogMessage = 'somethingGoesWrong';
       }
       this.dialog.open(ErrorDialogComponent, {data: {message: dialogMessage}});
       return throwError(error.error.message ? error.error.message : error);

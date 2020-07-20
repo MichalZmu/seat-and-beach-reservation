@@ -1,3 +1,5 @@
 <div mat-dialog-content>
-  <p class="mat-body-1">{{data.message}}</p>
+  <p class="mat-body-1" *ngIf="data.message === 'emailAlreadyExist'">{{'error_dialog.email_already_in_database' | translate}}</p>
+  <p class="mat-body-1" *ngIf="data.message === 'IncorrectEmailOrPassword'">{{'error_dialog.incorrect_email_or_password' | translate}}</p>
+  <p class="mat-body-1" *ngIf="data.message === 'somethingGoesWrong'">{{'error_dialog.something_wrong' | translate}}</p>
 </div>

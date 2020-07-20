@@ -50,7 +50,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.currentLang = this.translateService.defaultLang;
     }
     this.allLanguages = this.translateService.getLangs();
-    console.log(this.allLanguages);
   }
 
   ngOnDestroy() {

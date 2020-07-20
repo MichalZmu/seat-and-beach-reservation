@@ -57,5 +57,10 @@
     "reservation": "reservation",
     "log_out": "Log out",
     "user_panel": "User panel"
+  },
+  "error_dialog": {
+    "email_already_in_database": "This email address is already in our database, please choose different one or create new account",
+    "incorrect_email_or_password": "Incorrect email and/or password",
+    "something_wrong": "Something goes wrong, please try again"
   }
 }
