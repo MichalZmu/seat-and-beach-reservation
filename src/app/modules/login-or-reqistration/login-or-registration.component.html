@@ -5,24 +5,24 @@
   <div class="container" *ngIf="!isLoading">
     <div class="row">
       <div class="col-sm- login-section">
-        <h3 class="red-title">Zaloguj się</h3>
+        <h3 class="red-title">{{'login_or_registration.login' | translate}}</h3>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="email">Adres email:</label>
+            <label for="email">{{'create_new_user.email_address' | translate}}:</label>
             <input type="text" class="form-control" id="email" name="email" formControlName="email"
                    [class.not-valid]="submitted && loginForm.controls.email.status === 'INVALID'" required>
           </div>
           <div class="form-group">
-            <label for="password">Hasło:</label>
+            <label for="password">{{'create_new_user.password' | translate}}:</label>
             <input type="password" class="form-control" id="password" name="password" formControlName="password"
                    [class.not-valid]="submitted && loginForm.controls.password.status === 'INVALID'" required>
           </div>
-          <button type="submit" (click)="login()" class="standard-button-small">Zaloguj się</button>
+          <button type="submit" (click)="login()" class="standard-button-small">{{'login_or_registration.login' | translate | uppercase}}</button>
         </form>
       </div>
       <div *ngIf="!isLoading" class="registration-container col-sm-">
-        <h3 class="red-title">Nie masz konta?</h3>
-        <button class="standard-button" (click)="goToRegistrationForm()">Zarejestruj się</button>
+        <h3 class="red-title">{{'login_or_registration.account_required' | translate}}</h3>
+        <button class="standard-button" (click)="goToRegistrationForm()">{{'login_or_registration.register' | translate | uppercase}}</button>
       </div>
     </div>
   </div>

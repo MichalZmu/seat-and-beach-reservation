@@ -1,53 +1,53 @@
 <div class="container main-container main-container__mar-high">
-  <h1 class="red-title">Powiedz nam coś o sobie:</h1>
+  <h1 class="red-title">{{'create_new_user.title' | translate}}</h1>
   <form *ngIf="!isLoading" #userForm="ngForm" (ngSubmit)="onSubmit()" [appMustMatch]="['password', 'passwordConf']">
     <div class="data-section">
       <div class="single-section row">
         <div class="form-group">
-          <label for="firstName">Imię:</label>
+          <label for="firstName">{{'create_new_user.first_name' | translate}}:</label>
           <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" #firstName="ngModel"
                  name="firstName" [class.not-valid]="submitted && firstName.invalid" required>
         </div>
         <div class="form-group">
-          <label for="lastName">Nazwisko:</label>
+          <label for="lastName">{{'create_new_user.last_name' | translate}}:</label>
           <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" #lastName="ngModel"
                  [class.not-valid]="submitted && lastName.invalid" name="lastName" required>
         </div>
       </div>
       <div class="single-section row">
         <div class="form-group">
-          <label for="phoneNumber">Telefon kontaktowy:</label>
+          <label for="phoneNumber">{{'create_new_user.phone_number' | translate}}: </label>
           <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber"
                  placeholder="123 456 789">
         </div>
         <div class="form-group">
-          <label for="email">Adres email:</label>
+          <label for="email">{{'create_new_user.email_address' | translate}}:</label>
           <input type="email" class="form-control" id="email" placeholder="name@example.com" [(ngModel)]="user.email"
                  name="email" #email="ngModel" [class.not-valid]="submitted && email.invalid" required>
         </div>
       </div>
       <div class="single-section row">
         <div class="form-group">
-          <label for="password">Hasło:</label>
+          <label for="password">{{'create_new_user.password' | translate}}:</label>
           <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password"
                  #password="ngModel" [class.not-valid]="submitted && password.invalid" required>
         </div>
         <div class="form-group">
-          <label for="passwordConf">Potwierdź hasło:</label>
+          <label for="passwordConf">{{'create_new_user.confirm_password' | translate}}:</label>
           <input type="password" class="form-control" id="passwordConf" name="passwordConf"
                  [(ngModel)]="passwordConfirmation" #passwordConf="ngModel"
                  [class.not-valid]="submitted && passwordConf.invalid" required>
           <div *ngIf="passwordConf.invalid && submitted">
             <div *ngIf="passwordConf.errors.mustMatch && submitted && passwordConf.invalid">
-              <span class="not-valid-text">Hasła muszą być identyczne</span>
+              <span class="not-valid-text">{{'create_new_user.password_unique' | translate}}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="row button-section">
-      <button [routerLink]="['/login-form']" class="standard-button-small">COFNIJ</button>
-      <button type="submit" (click)="createUser(userForm);" class="standard-button-small">DALEJ</button>
+      <button [routerLink]="['/login-form']" class="standard-button-small">{{'create_new_user.go_back' | translate | uppercase}}</button>
+      <button type="submit" (click)="createUser(userForm);" class="standard-button-small">{{'create_new_user.next' | translate | uppercase}}</button>
     </div>
   </form>
   <div *ngIf="isLoading">

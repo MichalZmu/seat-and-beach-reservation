@@ -14,6 +14,7 @@ import {RulesComponent} from '../../modules/rules/rules.component';
 import {ContactComponent} from '../../modules/contact/contact.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [DefaultComponent,
@@ -34,7 +35,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    TranslateModule
   ]
 })
 export class DefaultModule { }

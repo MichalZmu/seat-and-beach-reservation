@@ -1,13 +1,13 @@
 <div class="container main-container main-container__mar-high">
-  <span class="ink-free-title">Zarezerwuj swoje miejsce</span>
+  <span class="ink-free-title">{{'home.title' | translate}}</span>
   <div *ngIf="!isAuthenticated" class="arrow-container">
     <img src="assets/arrow-right.svg" class="left-arrow" alt="arrow_icon">
     <img src="assets/arrow-right.svg" alt="arrow_icon">
   </div>
   <div class="buttons">
     <div *ngIf="!isAuthenticated">
-      <button class="standard-button" (click)="nextStep('withoutReservation')">Z LOGOWANIEM</button>
-      <button class="standard-button" (click)="nextStep('reservation')">BEZ LOGOWANIA</button>
+      <button class="standard-button" (click)="nextStep('withoutReservation')">{{'home.login' | translate | uppercase}}</button>
+      <button class="standard-button" (click)="nextStep('reservation')">{{'home.without_login' | translate | uppercase}}</button>
     </div>
     <div *ngIf="isAuthenticated">
       <button class="standard-button" (click)="nextStep('reservation')">START</button>

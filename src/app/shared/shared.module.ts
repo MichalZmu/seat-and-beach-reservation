@@ -9,6 +9,7 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
 import {MatDialogModule} from '@angular/material/dialog';
 import {ErrorInterceptor} from './components/error-interceptor';
 import {RouterModule} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 
@@ -17,7 +18,8 @@ import {RouterModule} from '@angular/router';
   imports: [
     CommonModule,
     MatDialogModule,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ],
   providers: [
     AuthGuard,

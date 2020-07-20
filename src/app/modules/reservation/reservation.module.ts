@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChoosePlaceComponent } from './choose-place/choose-place.component';
-import { MAT_LABEL_GLOBAL_OPTIONS, MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +14,7 @@ import { ReservationComponent } from './reservation.component';
 import { SummaryComponent } from './summary/summary.component';
 import {RouterModule} from '@angular/router';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [ChoosePlaceComponent,
@@ -32,6 +33,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     FormsModule,
     RouterModule,
     MatProgressSpinnerModule,
+    TranslateModule,
   ],
   exports: [ChoosePlaceComponent,
   MustMatchDirective]

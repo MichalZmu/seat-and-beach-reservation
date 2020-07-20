@@ -1,24 +1,24 @@
 <div class="main-container main-container__mar-high" *ngIf="!dataChoosed">
-  <h3 class="ink-free-title">Wybierz termin</h3>
+  <h3 class="ink-free-title">{{'book_a_seat.choose_date' | translate}}</h3>
   <div class="datepicker">
     <mat-form-field>
-      <input [(ngModel)]="reservationDateFrom" matInput [matDatepicker]="pickerFrom" placeholder="Choose a date">
+      <input [(ngModel)]="reservationDateFrom" matInput [matDatepicker]="pickerFrom" placeholder="{{'book_a_seat.date_from' | translate}}">
     </mat-form-field>
     <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
     <mat-datepicker #pickerFrom></mat-datepicker>
   </div>
   <div class="datepicker">
     <mat-form-field>
-      <input [(ngModel)]="reservationDateTo" matInput [matDatepicker]="pickerTo" placeholder="Choose a date">
+      <input [(ngModel)]="reservationDateTo" matInput [matDatepicker]="pickerTo" placeholder="{{'book_a_seat.date_to' | translate}}">
     </mat-form-field>
     <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
     <mat-datepicker #pickerTo></mat-datepicker>
   </div>
-  <button class="standard-button-small" (click)="isDataChoosed()">Dalej</button>
-  <p class="color-red" *ngIf="showError">Rezerwacja dat z przeszłości jest niemożliwa</p>
+  <button class="standard-button-small" (click)="isDataChoosed()">{{'create_new_user.next' | translate | uppercase}}</button>
+  <p class="color-red" *ngIf="showError">{{'book_a_seat.date_from_past' | translate}}</p>
 </div>
 <div class="main-container main-container__mar-high" *ngIf="dataChoosed">
-  <h3 class="ink-free-title">Wybierz miejsce</h3>
+  <h3 class="ink-free-title">{{'book_a_seat.choose_a_seat' | translate}}</h3>
   <p>{{reservationDateFrom | date:'dd/LL/y'}} - {{reservationDateTo | date:'dd/LL/y'}}</p>
   <div *ngIf="!isLoading" [style.width]="beachWidth" class="grid">
     <div [style.border]="selectedSeat === place ? 'solid #00c7f5 2px' : null" (click)="choosePlace(place)" class="place"
@@ -32,8 +32,8 @@
     <mat-spinner color="warn"></mat-spinner>
   </div>
   <div class="button-section" *ngIf="!isLoading">
-    <button class="standard-button-small" (click)="goBack()">Cofnij</button>
-    <button *ngIf="!loggedUser" class="standard-button-small" (click)="nextStep()">Dalej</button>
-    <button *ngIf="loggedUser" class="standard-button-small" (click)="makeReservation()">Rezerwuj</button>
+    <button class="standard-button-small" (click)="goBack()">{{'create_new_user.go_back' | translate | uppercase}}</button>
+    <button *ngIf="!loggedUser" class="standard-button-small" (click)="nextStep()">{{'create_new_user.next' | translate | uppercase}}</button>
+    <button *ngIf="loggedUser" class="standard-button-small" (click)="makeReservation()">{{'book_a_seat.reserve' | translate | uppercase}}</button>
   </div>
 </div>
