@@ -1,0 +1,61 @@
+{
+  "home": {
+    "title": "Zarezerwuj swoje miejsce",
+    "login": "z logowaniem",
+    "without_login": "bez logowania",
+    "start": "start"
+  },
+  "contact": {
+    "title": "kontakt"
+  },
+  "create_new_user": {
+    "title": "Powiedz nam coś o sobie",
+    "first_name": "Imię",
+    "last_name": "Nazwisko",
+    "phone_number": "Numer telefonu",
+    "email_address": "Adres email",
+    "password": "Hasło",
+    "confirm_password": "Potwierdź hasło",
+    "password_unique": "Hasła muszą być identyczne",
+    "go_back": "cofnij",
+    "next": "dalej"
+  },
+  "login_or_registration": {
+    "login": "Zaloguj się",
+    "account_required": "Nie masz konta?",
+    "register": "Zarejestruj się"
+  },
+  "page_not_found": {
+    "title": "404 - strony nie znaleziono"
+  },
+  "book_a_seat": {
+    "choose_date": "Wybierz termin",
+    "date_from": "Rezerwacja od",
+    "date_to": "Rezerwacja do",
+    "date_from_past": "Rezerwacja dat z przeszłości jest niemożliwa",
+    "choose_a_seat": "Wybierz miejsce",
+    "reserve": "Rezerwuj"
+  },
+  "summary": {
+    "title": "Podsumowanie",
+    "thanks_for_reservation": "Dziękujemy za rezerwację!",
+    "reservation_number": "Numer rezerwacji",
+    "reservation_from": "Rezerwacja od",
+    "reservation_to": "Rezerwacja do",
+    "seat_number": "Numer miejsca",
+    "main_page": "Strona główna"
+  },
+  "rules": {
+    "title": "Zasady"
+  },
+  "user_panel": {
+    "my_reservations": "Moje rezerwacje",
+    "from": "Od",
+    "to": "Do"
+  },
+  "nav": {
+    "reservation": "rezerwacja",
+    "log_out": "Wyloguj się",
+    "user_panel": "Panel użytkownika"
+  }
+}
