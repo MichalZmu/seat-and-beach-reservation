@@ -57,5 +57,10 @@
     "reservation": "rezerwacja",
     "log_out": "Wyloguj się",
     "user_panel": "Panel użytkownika"
+  },
+  "error_dialog": {
+    "email_already_in_database": "Ten adres email jest już w naszej bazie, proszę użyć innego lub zalogować się",
+    "incorrect_email_or_password": "Nieprawidłowy email i/lub hasło",
+    "something_wrong": "Coś poszło nie tak, proszę spróbować jeszcze raz"
   }
 }
