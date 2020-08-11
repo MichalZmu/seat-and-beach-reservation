@@ -1,6 +1,6 @@
 # Reserve your beach seat
 
-This project was created to demonstrate a beach seat reservation system. Perfect at the time of coronavirus.
+This project was created to demonstrate a beach seat reservation system. The application was written in TypeScript with Angular 8. All the reservations are stored in the cloud database (MongoDB). For communications between database and application, I created REST API (Node.js with Express and Mongoose). For the graphic layer, I used Angular Material (data pickers and pagination) and Bootstrap (nav and grid layout).
 
 ![seach-and-beach-screenshot](https://i.imgur.com/muDmxno.jpg)
 
