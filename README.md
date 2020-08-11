@@ -2,6 +2,8 @@
 
 This project was created to demonstrate a beach seat reservation system. Perfect at the time of coronavirus.
 
+![seach-and-beach-screenshot](https://i.imgur.com/muDmxno.jpg)
+
 ## How it works
 
 There are two ways - you can make a reservation without login or create an account and then, reserve your seat. All the reservations are stored in the cloud database (through MongoDB). You can easily display your reservations in user panel (when logged).  
