@@ -4,10 +4,18 @@
   color: #8f7d4a;
 }
 
+.red-title {
+  margin: 10px 0;
+}
+
 .main-container {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  .content {
+    margin: 0 10px;
+  }
 }
 
 .table-header {
@@ -21,10 +29,12 @@ table {
 
 th {
   width: 150px;
+  text-align: center;
 }
 
 th, td {
   border-bottom: 1px white solid;
+  text-align: center;
 }
 
 .custom-mat-paginator {
