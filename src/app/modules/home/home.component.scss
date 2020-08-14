@@ -19,17 +19,15 @@
       transform: rotate(80deg);
     }
   }
+
+  .buttons-container {
+    text-align: center;
+  }
 }
 
 @media (max-width: 767px) {
 
   .main-container .arrow-container {
     display: none;
-  }
-
-  .buttons {
-    width: 200px;
-    margin-left:auto;
-    margin-right:auto;
   }
 }

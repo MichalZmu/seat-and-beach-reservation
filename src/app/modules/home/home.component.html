@@ -4,7 +4,7 @@
     <img src="assets/arrow-right.svg" class="left-arrow" alt="arrow_icon">
     <img src="assets/arrow-right.svg" alt="arrow_icon">
   </div>
-  <div class="buttons">
+  <div class="buttons-container">
     <div *ngIf="!isAuthenticated">
       <button class="standard-button" (click)="nextStep('withoutReservation')">{{'home.login' | translate | uppercase}}</button>
       <button class="standard-button" (click)="nextStep('reservation')">{{'home.without_login' | translate | uppercase}}</button>
