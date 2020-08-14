@@ -56,22 +56,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService.getAuthStatusListener().unsubscribe();
   }
 
-  goToLogin(): void {
-    this.router.navigate(['/login-form']);
-  }
-
   logout(): void {
     this.authService.logout();
-  }
-
-  goToUserPanel(): void {
-    this.router.navigate(['/user-panel']);
   }
 
   changeLanguage(lang): void {
     this.translateService.use(lang);
     this.currentLang = lang;
     localStorage.setItem('lang', lang);
+  }
+
+  toggleNavBar() {
+    const element = document.getElementsByClassName( 'navbar-toggler' )[0] as HTMLElement;
+    if ( element.getAttribute( 'aria-expanded' ) === 'true' ) {
+      element.click();
+    }
   }
 
 }

@@ -1,23 +1,22 @@
   <nav class="navbar navbar-expand-md navbar-dark">
-    <!--    <a href="/" class="navbar-brand">Brand</a>-->
     <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse justify-content-stretch" id="navbar">
       <ul class="navbar-nav main-nav">
         <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/rules']" [class.clicked]="selectedStep === 0">{{'rules.title' | translate | uppercase}}</a>
+          <a class="nav-link" [routerLink]="['/rules']" (click)="toggleNavBar()" [class.clicked]="selectedStep === 0">{{'rules.title' | translate | uppercase}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" [class.clicked]="selectedStep === 1">{{'nav.reservation' | translate | uppercase}}</a>
+          <a class="nav-link" [routerLink]="['/']" (click)="toggleNavBar()" [class.clicked]="selectedStep === 1">{{'nav.reservation' | translate | uppercase}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/contact']" [class.clicked]="selectedStep === 2">{{'contact.title' | translate | uppercase}}</a>
+          <a class="nav-link" [routerLink]="['/contact']" (click)="toggleNavBar()" [class.clicked]="selectedStep === 2">{{'contact.title' | translate | uppercase}}</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" *ngIf="!isAuthenticated">
-          <a *ngIf="!isAuthenticated" [routerLink]="['/login-form']" class="nav-link">{{'login_or_registration.login' | translate | uppercase}}</a>
+          <a *ngIf="!isAuthenticated" [routerLink]="['/login-form']" (click)="toggleNavBar()" class="nav-link">{{'login_or_registration.login' | translate | uppercase}}</a>
         </li>
         <li *ngIf="isAuthenticated && this.currentUser" class="nav-item dropdown login-button">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -25,8 +24,8 @@
             <img class="login-button-img" src="assets/icons/user.svg" alt="user_icon">
             {{this.currentUser.email}}</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" (click)="logout()">{{'nav.log_out' | translate}}</a>
-            <a class="dropdown-item" [routerLink]="['/user-panel']">{{'nav.user_panel' | translate}}</a>
+            <a class="dropdown-item" (click)="logout(); toggleNavBar()">{{'nav.log_out' | translate}}</a>
+            <a class="dropdown-item" (click)="toggleNavBar()" [routerLink]="['/user-panel']">{{'nav.user_panel' | translate}}</a>
           </div>
         </li>
         <li class="nav-item dropdown language-button">
@@ -35,7 +34,7 @@
             {{this.currentLang | uppercase}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
-            <a class="dropdown-item" *ngFor="let language of allLanguages" (click)="changeLanguage(language)">{{language | uppercase}}</a>
+            <a class="dropdown-item" *ngFor="let language of allLanguages" (click)="changeLanguage(language); toggleNavBar()">{{language | uppercase}}</a>
           </div>
         </li>
       </ul>
