@@ -19,19 +19,20 @@ export class AuthService {
     email: '',
     password: ''
   };
+  readonly apiAddress = 'https://seat-and-beach-reservation-api-production.up.railway.app/api'
 
   constructor(private http: HttpClient,
               private router: Router) {
   }
 
   createUser(user: User): Observable<any> {
-    return this.http.post('https://seat-and-beach.herokuapp.com/api/user/sign-up', user);
+    return this.http.post(`${this.apiAddress}/user/sign-up`, user);
   }
 
   login(email: string, password: string): Observable<any> {
     this.authData.email = email;
     this.authData.password = password;
-    return this.http.post<{ token: string, userId: string, expiresIn: any}>('https://seat-and-beach.herokuapp.com/api/user/login', this.authData).pipe(map(response => {
+    return this.http.post<{ token: string, userId: string, expiresIn: any}>(`${this.apiAddress}/user/login`, this.authData).pipe(map(response => {
       this._userId = response.userId;
       this._token = response.token;
       if (this._token) {
@@ -49,7 +50,7 @@ export class AuthService {
 
   getCurrentUser(userId: string): Observable<any> {
     const httpParams = new HttpParams().set('userId', userId);
-    return this.http.get('https://seat-and-beach.herokuapp.com/api/user/current-user', {params: httpParams});
+    return this.http.get(`${this.apiAddress}/user/current-user`, {params: httpParams});
   }
 
   get token(): string {

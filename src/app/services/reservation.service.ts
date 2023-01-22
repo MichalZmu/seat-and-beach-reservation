@@ -23,18 +23,20 @@ export class ReservationService {
     email: ''
   };
 
+  readonly apiAddress = 'https://seat-and-beach-reservation-api-production.up.railway.app/api'
+
   constructor(private http: HttpClient) {
   }
 
   addReservation(): Observable<any> {
-    return this.http.post<{ message: string, reservationId: string }>('https://seat-and-beach.herokuapp.com/api/reservations', this.reservation);
+    return this.http.post<{ message: string, reservationId: string }>(`${this.apiAddress}/reservations`, this.reservation);
   }
 
   getReservations(dateFrom, dateTo): Observable<Reservation[]> {
     const paramDateFrom = moment(dateFrom).startOf('day').toISOString();
     const paramDateTo = moment(dateTo).endOf('day').toISOString();
     const params = new HttpParams().set('dateFrom', paramDateFrom).set('dateTo', paramDateTo);
-    return this.http.get<Reservation[]>('https://seat-and-beach.herokuapp.com/api/reservations', { params });
+    return this.http.get<Reservation[]>(`${this.apiAddress}/reservations`, { params });
   }
 
   getAllReservationsByUserId(userId: string, pageSize?: string, currentPage?: string): Observable<any> {
@@ -43,7 +45,7 @@ export class ReservationService {
       params = params.append('pageSize', pageSize);
       params = params.append('currentPage', currentPage);
     }
-    return this.http.get<Reservation[]>('https://seat-and-beach.herokuapp.com/api/reservations/user', { params});
+    return this.http.get<Reservation[]>(`${this.apiAddress}/reservations/user`, { params});
   }
 
   set dateTo(value: string) {
