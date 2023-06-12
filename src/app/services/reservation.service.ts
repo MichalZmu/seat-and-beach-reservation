@@ -23,7 +23,7 @@ export class ReservationService {
     email: ''
   };
 
-  readonly apiAddress = 'https://seat-and-beach-reservation-api-production.up.railway.app/api'
+  readonly apiAddress = 'https://seat-and-beach-reservation-backend.onrender.com/api';
 
   constructor(private http: HttpClient) {
   }
